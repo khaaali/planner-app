@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Container } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import AddInventory from "./components/AddInventory.js";
+import Header from "./components/Header.js";
+import TripPlanning from "./components/TripPlanning";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const activeTab = useSelector((state) => state.activeTab);
+	return (
+		<Container>
+			<div className="App">
+				<Header />
+				{activeTab.isInventoryTab === true ? (
+					<AddInventory />
+				) : (
+					<TripPlanning />
+				)}
+			</div>
+		</Container>
+	);
 }
 
 export default App;

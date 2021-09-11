@@ -1,4 +1,4 @@
-.App {
+.Title {
   text-align: center;
 }
 
@@ -28,11 +28,68 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-tabs {
+  font-size: 16px;
+}
+
+.routes {
+  float: left;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.items_style {
+  padding-top: 1em;
+  display: flex;
+}
+
+.card {
+  border-top: 0px !important;
+}
+
+.tag {
+  background-color: rgb(216, 226, 226);
+  border-radius: 30px;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.close-tag {
+  background-color: rgba(143, 143, 143, 0.959);
+  border-radius: 50px;
+  float: right;
+  color: white;
+  margin-right: -3px;
+  padding: 3px 8px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.tag-label {
+  margin-right: 5px;
+}
+
+.form-label {
+  margin-bottom: .5rem;
+  min-width: 138px;
+  text-align: right;
+  margin: 10px;
+}
+
+.form-group {
+  display: flex;
+  gap: 10px;
+}
+
+.form-container {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px;
 }
