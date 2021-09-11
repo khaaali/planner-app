@@ -14,7 +14,8 @@ const ItemTag = (props) => {
 
 	return (
 		<div className="items_style">
-			{props.itemList.sort(comparatorItemsList).map((el, index) => (
+			{ props.itemList.length === 0 ? null:
+			props.itemList.sort(comparatorItemsList).map((el, index) => (
 				<ul key={el.id} className="tag">
 					<span className="tag-label">{el.name}</span>
 					<span

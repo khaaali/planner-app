@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Card, FormControl, InputGroup, Button, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+import ItemTag from "./ItemTag";
 import { addTrip } from "../actions";
 import { DateRangePicker } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.css";
-import ItemTag from "./ItemTag";
 
 const ScheduledTripCard = (props) => {
 	return (
-		<Card key={props.trip.id}>
+		<Card>
 			<Card.Header>
 				<h6>{props.trip.tripName}</h6>
 			</Card.Header>

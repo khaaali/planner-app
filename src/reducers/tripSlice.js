@@ -76,10 +76,13 @@ const tripScheduleReducer = (state = initialState, action) => {
 		case "REMOVE_TRIP":
 			return state;
 		case "REMOVE_ITEMS_IN_TRIP": {
+			var filteredItems = state.trips[action.payload.index];
+			console.log(action.payload.index);
+			console.log(filteredItems);
 			return {
 				...state,
-				trips: state.trips[action.payload.tripIndex].items.filter(
-					(item) => item.id !== action.payload.id
+				trips: state.trips.filter((el) =>
+					el.items.some((item) => item.id !== action.payload.id)
 				),
 			};
 		}
