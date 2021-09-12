@@ -7,22 +7,22 @@ import "rsuite/dist/styles/rsuite-default.css";
 import { comparatorTripListByDeparture } from "../utils/tripUtilities";
 
 const TripPlanning = () => {
-	const tripsList = useSelector((state) => state.tripReducer.trips);
+	const tripsList = useSelector((state) =>
+		Object.values(state.tripReducer.trips).sort(comparatorTripListByDeparture)
+	);
 
 	return (
 		<Card>
 			<CreateTripForm />
 			<hr />
 			<div style={{ margin: 50 }}>
-				{Object.values(tripsList)
-					.sort(comparatorTripListByDeparture)
-					.map((tripDetails, tripIndex) => (
-						<ScheduledTripCard
-							key={tripDetails.id}
-							tripDetails={tripDetails}
-							tripIndex={tripIndex}
-						/>
-					))}
+				{tripsList.map((tripDetails, tripIndex) => (
+					<ScheduledTripCard
+						key={tripDetails.id}
+						tripDetails={tripDetails}
+						tripIndex={tripIndex}
+					/>
+				))}
 			</div>
 		</Card>
 	);

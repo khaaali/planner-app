@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import AddInventory from "./components/AddInventory.js";
 import Header from "./components/Header.js";
 import TripPlanning from "./components/TripPlanning";

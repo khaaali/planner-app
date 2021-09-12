@@ -39,8 +39,8 @@ const tripScheduleReducer = (state = initialState, action) => {
 			});
 		}
 		case "ADD_ITEMS_TO_TRIP":
-			console.log("fa", action.payload.tripIndex);
-			console.log("sd", state.trips);
+			//console.log("fa", action.payload.tripIndex);
+			//console.log("sd", state.trips);
 			return produce(state, (draftState) => {
 				Object.values(draftState.trips)
 					.sort(comparatorTripListByDeparture)
@@ -63,7 +63,7 @@ const tripScheduleReducer = (state = initialState, action) => {
 				Object.values(draftState.trips).sort(comparatorTripListByDeparture)[
 					action.payload.tripIndex
 				].items = [
-					Object.values(...state.trips)
+					...draftState.trips
 						.sort(comparatorTripListByDeparture)
 						[action.payload.tripIndex].items.filter(
 							(item) => item.id !== action.payload.itemId
