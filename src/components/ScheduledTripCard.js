@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import ItemTag from "./ItemTag";
 import { addTrip } from "../actions";
@@ -21,10 +21,13 @@ const ScheduledTripCard = (props) => {
 					itemList={props.tripDetails.items}
 					tripIndex={props.tripIndex}
 				/>
-				<SelectItemPicker
-					tripDetails={props.tripDetails}
-					tripIndex={props.tripIndex}
-				/>
+				<div style={{ display: "flex", gap: 10 }}>
+					<SelectItemPicker
+						tripDetails={props.tripDetails}
+						tripIndex={props.tripIndex}
+					/>
+					
+				</div>
 			</Card.Body>
 		</Card>
 	);

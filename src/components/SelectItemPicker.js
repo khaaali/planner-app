@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import ItemTag from "./ItemTag";
 import { addTrip } from "../actions";
@@ -43,6 +43,8 @@ const SelectItemPicker = (props) => {
 							</option>
 						))}
 				</Form.Select>
+				<Button variant="primary"> Add Item</Button>
+				<Button variant="danger"> Delete Trip</Button>
 			</div>
 		</div>
 	);
