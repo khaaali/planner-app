@@ -3,9 +3,12 @@ import { Card, FormControl, InputGroup, Button } from "react-bootstrap";
 import ItemTag from "./ItemTag";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../actions";
+import { comparatorItemsListByName } from "../utils/tripUtilities";
 
 function AddInventory() {
-	const itemList = useSelector((state) => state.inventoryReducer.items);
+	const itemList = useSelector((state) =>
+		Object.values(state.inventoryReducer.items).sort(comparatorItemsListByName)
+	);
 	const [item, setItem] = useState("");
 	const dispatch = useDispatch();
 

@@ -1,0 +1,36 @@
+{
+	"trips": [
+		{
+			"id": 1,
+			"departDate": "20/9/2021",
+			"items": [],
+			"returnDate": "12/10/2021",
+			"tripName": "Sudan"
+		},
+		{
+			"id": 2,
+			"departDate": "22/9/2021",
+			"items": [],
+			"returnDate": "11/10/2021",
+			"tripName": "Spain"
+		},
+		{
+			"id": 3,
+			"departDate": "21/9/2021",
+			"items": [],
+			"returnDate": "10/10/2021",
+			"tripName": "Thailand"
+		}
+	],
+
+	"items": [
+		{
+			"id": 4,
+			"name": "hair dyer"
+		},
+		{
+			"id": 5,
+			"name": "cell charger"
+		}
+	]
+}

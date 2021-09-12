@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, removeItemsInTrip } from "../actions";
-import { comparatorItemsListByName } from "../utils/tripUtilities";
 
 const ItemTag = (props) => {
 	const activeTab = useSelector((state) => state.activeTab);

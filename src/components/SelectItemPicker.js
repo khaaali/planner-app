@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { addItemsToTrip, removeTrip } from "../actions";
-import ItemTag from "./ItemTag";
-import { addTrip } from "../actions";
-import { DateRangePicker } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.css";
 import { comparatorTripListByDeparture } from "../utils/tripUtilities";
 

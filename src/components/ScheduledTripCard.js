@@ -1,9 +1,6 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
+import { Card } from "react-bootstrap";
 import ItemTag from "./ItemTag";
-import { addTrip } from "../actions";
-import { DateRangePicker } from "rsuite";
 import SelectItemPicker from "./SelectItemPicker";
 import "rsuite/dist/styles/rsuite-default.css";
 
@@ -26,7 +23,6 @@ const ScheduledTripCard = (props) => {
 						tripDetails={props.tripDetails}
 						tripIndex={props.tripIndex}
 					/>
-					
 				</div>
 			</Card.Body>
 		</Card>
