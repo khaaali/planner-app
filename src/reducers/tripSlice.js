@@ -6,48 +6,21 @@ const initialState = {
 		{
 			id: uuidv4(),
 			departDate: "20/9/2021",
-			items: [
-				{
-					id: uuidv4(),
-					name: "hair dyer",
-				},
-				{
-					id: uuidv4(),
-					name: "cell charger",
-				},
-			],
+			items: [],
 			returnDate: "12/10/2021",
 			tripName: "Sudan",
 		},
 		{
 			id: uuidv4(),
 			departDate: "22/9/2021",
-			items: [
-				{
-					id: uuidv4(),
-					name: "hair dyer",
-				},
-				{
-					id: uuidv4(),
-					name: "cell charger",
-				},
-			],
+			items: [],
 			returnDate: "11/10/2021",
 			tripName: "Spain",
 		},
 		{
 			id: uuidv4(),
 			departDate: "21/9/2021",
-			items: [
-				{
-					id: uuidv4(),
-					name: "hair dyer",
-				},
-				{
-					id: uuidv4(),
-					name: "cell charger",
-				},
-			],
+			items: [],
 			returnDate: "10/10/2021",
 			tripName: "Thailand",
 		},
@@ -82,6 +55,7 @@ const tripScheduleReducer = (state = initialState, action) => {
 
 		case "REMOVE_TRIP":
 			return state;
+
 		// on action, traverses state using "immer produce" on received index and item,
 		// from actio payload and filters/remove data
 		case "REMOVE_ITEMS_IN_TRIP": {

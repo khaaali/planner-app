@@ -14,8 +14,15 @@ const CreateTripForm = () => {
 
 	const captureTripName = (e) => {
 		setTripName(e.target.value);
+		if (Number(tripName)) {
+			alert("Trip name should be a string");
+			setTripName("");
+		}
 	};
 
+	const handleCreateTripValidation = () => {};
+
+	console.log("date", departDate);
 	const onClickCreateNewTrip = () => {
 		dispatch(
 			addTrip({
@@ -65,7 +72,7 @@ const CreateTripForm = () => {
 						onChange={selectedDateRange}
 					/>
 				</Form.Group>
-				<Button disabled={date === ""} onClick={onClickCreateNewTrip}>
+				<Button disabled={tripName === ""} onClick={onClickCreateNewTrip}>
 					Create New Trip
 				</Button>
 			</Form>

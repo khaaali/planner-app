@@ -28,6 +28,7 @@ const SelectItemPicker = (props) => {
 					value={selectedItem}
 					onChange={updateItemName}
 				>
+					{/* A-A^B form should display items which are not in common with inventory */}
 					<option value=" " key={`${props.tripIndex}-options`}>
 						Select any item
 					</option>

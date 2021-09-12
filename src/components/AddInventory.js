@@ -11,6 +11,10 @@ function AddInventory() {
 
 	const captureItem = (e) => {
 		setItem(e.target.value);
+		if (Number(item)) {
+			alert("itemshould be a string");
+			setItem(" ");
+		}
 	};
 
 	return (
