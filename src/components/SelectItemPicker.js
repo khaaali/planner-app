@@ -13,7 +13,7 @@ const SelectItemPicker = (props) => {
 	const [selectedItem, setSelectedItem] = useState(" ");
 	const dispatch = useDispatch();
 
-	console.log(props);
+	//console.log(props);
 
 	const updateItemName = (e) => {
 		setSelectedItem(e.target.value);
@@ -51,7 +51,29 @@ const SelectItemPicker = (props) => {
 					variant="primary"
 					disabled={selectedItem === " "}
 					onClick={() => {
-						dispatch(addItemsToTrip({ itemName: selectedItem }));
+						dispatch(
+							addItemsToTrip({
+								item: itemList.find((item) => item.id === selectedItem),
+							})
+						);
+
+						console.log(
+							itemList
+								.filter(
+									(ilist) =>
+										!tripsList[props.tripIndex].items.some(
+											(tlist) => ilist.id === tlist.id
+										)
+								)
+								.map((item) => (
+									<option
+										key={`${item.id}+${props.tripIndex}-optionSelect`}
+										value={item.id}
+									>
+										{item.name}
+									</option>
+								))
+						);
 					}}
 				>
 					Add Item

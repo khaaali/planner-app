@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import { Immer } from "immer";
-import produce from "@reduxjs/toolkit/node_modules/immer";
+import produce from "immer";
+
 const initialState = {
 	items: [
 		{
@@ -23,9 +23,10 @@ const inventoryItemsReducer = (state = initialState, action) => {
 		}
 
 		case "REMOVE_ITEM": {
-			console.log(action.payload);
 			return produce(state, (draftState) => {
-				draftState.items.filter((item) => item.id !== action.payload.itemId);
+				draftState.items = [
+					...state.items.filter((item) => item.id !== action.payload.itemId),
+				];
 			});
 		}
 

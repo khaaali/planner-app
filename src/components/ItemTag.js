@@ -14,7 +14,7 @@ const ItemTag = (props) => {
 
 	return (
 		<div className="items_style">
-			{console.log(props)}
+			
 			{Object.values(props.itemList)
 				.sort(comparatorItemsList)
 				.map((el, index) => (
