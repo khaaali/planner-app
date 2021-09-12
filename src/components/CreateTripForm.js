@@ -28,55 +28,73 @@ const CreateTripForm = () => {
 	};
 
 	// returns trip if date already exsists
-	const isDepartureReturnDateExist = (selectedDate) => {
+	const isDepartureDateExist = (selectedDate) => {
 		return tripsList.some((trip) => {
-			return (
-				selectedDate === trip.departDate || selectedDate === trip.returnDate
-			);
+			return selectedDate === trip.departDate;
 		});
 	};
 
-	const isDateBetweenDepartureReturn = (selectedDate) => {
+	const isReturnDateExist = (selectedDate) => {
 		return tripsList.some((trip) => {
-			return selectedDate > trip.departDate && selectedDate < trip.returnDate;
+			return selectedDate === trip.returnDate;
+		});
+	};
+
+	const isDateBetweenDeparture = (dep) => {
+		return tripsList.some((trip) => {
+			return dep > trip.departDate && dep < trip.returnDate;
+		});
+	};
+
+	const isDateBetweenReturn = (ret) => {
+		return tripsList.some((trip) => {
+			return ret < trip.returnDate && ret > trip.departDate;
 		});
 	};
 
 	const handleCreateTripValidation = () => {
 		return (
-			isDepartureReturnDateExist(departDate) &&
-			isDepartureReturnDateExist(returnDate) &&
-			isDateBetweenDepartureReturn(departDate) &&
-			isDateBetweenDepartureReturn(returnDate)
+			isDepartureDateExist(departDate) ||
+			isDepartureDateExist(returnDate) ||
+			isReturnDateExist(departDate) ||
+			isReturnDateExist(returnDate) ||
+			isDateBetweenDeparture(departDate) ||
+			isDateBetweenReturn(returnDate)
 		);
 	};
 
 	const onClickCreateNewTrip = () => {
 		// no valid trip on true
-		if (!handleCreateTripValidation()) {
+		if (handleCreateTripValidation()) {
+			console.log("handleCreateTripValidation", handleCreateTripValidation());
+			console.log("isDepartureDateExist_D", isDepartureDateExist(departDate));
+			console.log("isDepartureDateExist_R", isDepartureDateExist(returnDate));
+			console.log("isReturnDateExist_D", isReturnDateExist(departDate));
+			console.log("isReturnDateExist_R", isReturnDateExist(returnDate));
 			console.log(
-				"isDepartureReturnDateExist",
-				isDepartureReturnDateExist(departDate)
-			);
-			console.log(
-				"isDepartureReturnDateExist",
-				isDepartureReturnDateExist(returnDate)
-			);
-			console.log(
-				"isDateBetweenDepartureReturn",
-				isDateBetweenDepartureReturn(departDate)
-			);
-			console.log(
-				"isDateBetweenDepartureReturn",
-				isDateBetweenDepartureReturn(departDate)
+				"isDateBetweenDeparture_D",
+				isDateBetweenDeparture(departDate)
 			);
 
-			alert("choose different dates");
+			console.log("isDateBetweenReturn_R", isDateBetweenReturn(returnDate));
+
+			//alert("choose different dates");
 			setTripName("");
 			setDepartDate("");
 			setReturnDate("");
 			setDate([]);
 		} else {
+			console.log("handleCreateTripValidation", handleCreateTripValidation());
+			console.log("isDepartureDateExist_D", isDepartureDateExist(departDate));
+			console.log("isDepartureDateExist_R", isDepartureDateExist(returnDate));
+			console.log("isReturnDateExist_D", isReturnDateExist(departDate));
+			console.log("isReturnDateExist_R", isReturnDateExist(returnDate));
+			console.log(
+				"isDateBetweenDeparture_D",
+				isDateBetweenDeparture(departDate)
+			);
+
+			console.log("isDateBetweenReturn_R", isDateBetweenReturn(returnDate));
 			dispatch(
 				addTrip({
 					id: uuidv4(),
