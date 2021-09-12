@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card, FormControl, InputGroup, Button, Form } from "react-bootstrap";
+import React from "react";
+import { Card } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import ItemTag from "./ItemTag";
 import { addTrip } from "../actions";
