@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { addItemsToTrip } from "../actions";
+import { addItemsToTrip, removeTrip } from "../actions";
 import ItemTag from "./ItemTag";
 import { addTrip } from "../actions";
 import { DateRangePicker } from "rsuite";
@@ -17,6 +17,26 @@ const SelectItemPicker = (props) => {
 
 	const updateItemName = (e) => {
 		setSelectedItem(e.target.value);
+	};
+
+	// finds item from inventory and dispach actions to add items to a trip
+	const handlerAddItemTrip = () => {
+		dispatch(
+			addItemsToTrip({
+				tripIndex: props.tripIndex,
+				item: itemList.find((item) => item.id === selectedItem),
+			})
+		);
+		setSelectedItem(" ");
+	};
+
+	// dispaches action to remove trip from the list
+	const handlerDeleteTrip = () => {
+		dispatch(
+			removeTrip({
+				tripIndex: props.tripIndex,
+			})
+		);
 	};
 
 	return (
@@ -51,37 +71,13 @@ const SelectItemPicker = (props) => {
 				<Button
 					variant="primary"
 					disabled={selectedItem === " "}
-					onClick={() => {
-						// finds item from inventory and dispach actions to add items to a trip
-						dispatch(
-							addItemsToTrip({
-								tripIndex: props.tripIndex,
-								item: itemList.find((item) => item.id === selectedItem),
-							})
-						);
-						setSelectedItem(" ");
-						console.log(
-							itemList
-								.filter(
-									(ilist) =>
-										!tripsList[props.tripIndex].items.some(
-											(tlist) => ilist.id === tlist.id
-										)
-								)
-								.map((item) => (
-									<option
-										key={`${item.id}+${props.tripIndex}-optionSelect`}
-										value={item.id}
-									>
-										{item.name}
-									</option>
-								))
-						);
-					}}
+					onClick={handlerAddItemTrip}
 				>
 					Add Item
 				</Button>
-				<Button variant="danger"> Delete Trip</Button>
+				<Button variant="danger" onClick={handlerDeleteTrip}>
+					Delete Trip
+				</Button>
 			</div>
 		</div>
 	);

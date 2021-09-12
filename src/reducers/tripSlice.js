@@ -51,10 +51,10 @@ const tripScheduleReducer = (state = initialState, action) => {
 				);
 			});
 
-			return state;
-
 		case "REMOVE_TRIP":
-			return state;
+			return produce(state, (draftState) => {
+				delete draftState.trips[action.payload.tripIndex];
+			});
 
 		// on action, traverses state using "immer produce" on received index and item,
 		// from actio payload and filters/remove data
