@@ -23,8 +23,9 @@ const inventoryItemsReducer = (state = initialState, action) => {
 		}
 
 		case "REMOVE_ITEM": {
+			console.log(action.payload);
 			return produce(state, (draftState) => {
-				draftState.items.filter((item) => item.id !== action.payload);
+				draftState.items.filter((item) => item.id !== action.payload.itemId);
 			});
 		}
 

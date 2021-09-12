@@ -14,6 +14,7 @@ const ItemTag = (props) => {
 
 	return (
 		<div className="items_style">
+			{console.log(props)}
 			{Object.values(props.itemList)
 				.sort(comparatorItemsList)
 				.map((el, index) => (
@@ -22,7 +23,8 @@ const ItemTag = (props) => {
 						<span
 							className="close-tag"
 							onClick={() => {
-								if (activeTab.isInventoryTab) dispatch(removeItem(el.id));
+								if (activeTab.isInventoryTab)
+									dispatch(removeItem({ itemId: el.id }));
 								else
 									dispatch(
 										removeItemsInTrip({
