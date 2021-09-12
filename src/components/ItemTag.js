@@ -14,24 +14,28 @@ const ItemTag = (props) => {
 
 	return (
 		<div className="items_style">
-			{ props.itemList.length === 0 ? null:
-			props.itemList.sort(comparatorItemsList).map((el, index) => (
-				<ul key={el.id} className="tag">
-					<span className="tag-label">{el.name}</span>
-					<span
-						className="close-tag"
-						onClick={() => {
-							if (activeTab.isInventoryTab) dispatch(removeItem(el.id));
-							else
-								dispatch(
-									removeItemsInTrip({ id: el.id, tripIndex: props.tripIndex })
-								);
-						}}
-					>
-						X
-					</span>
-				</ul>
-			))}
+			{Object.values(props.itemList)
+				.sort(comparatorItemsList)
+				.map((el, index) => (
+					<ul key={el.id} className="tag">
+						<span className="tag-label">{el.name}</span>
+						<span
+							className="close-tag"
+							onClick={() => {
+								if (activeTab.isInventoryTab) dispatch(removeItem(el.id));
+								else
+									dispatch(
+										removeItemsInTrip({
+											itemId: el.id,
+											tripIndex: props.tripIndex,
+										})
+									);
+							}}
+						>
+							X
+						</span>
+					</ul>
+				))}
 		</div>
 	);
 };

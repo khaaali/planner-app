@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import produce from "immer";
 
 const initialState = {
 	trips: [
@@ -53,38 +54,38 @@ const initialState = {
 	],
 };
 
+function removeItem(array, action) {
+	return [...array.slice(0, action.index), ...array.slice(action.index + 1)];
+}
+
 const tripScheduleReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case "ADD_TRIP": {
-			return {
-				...state,
-				trips: [
-					...state.trips,
-					{
-						id: uuidv4(),
-						tripName: action.payload.tripName,
-						departDate: action.payload.departDate,
-						returnDate: action.payload.returnDate,
-						items: action.payload.items,
-					},
-				],
-			};
+			return produce(state, (draftState) => {
+				draftState.trips.push({
+					id: uuidv4(),
+					tripName: action.payload.tripName,
+					departDate: action.payload.departDate,
+					returnDate: action.payload.returnDate,
+					items: action.payload.items,
+				});
+			});
 		}
 		case "ADD_ITEMS_TO_TRIP":
 			return state;
 
 		case "REMOVE_TRIP":
 			return state;
+		// on action, traverses state using "immer produce" on received index and item,
+		// from actio payload and filters/remove data
 		case "REMOVE_ITEMS_IN_TRIP": {
-			var filteredItems = state.trips[action.payload.index];
-			console.log(action.payload.index);
-			console.log(filteredItems);
-			return {
-				...state,
-				trips: state.trips.filter((el) =>
-					el.items.some((item) => item.id !== action.payload.id)
-				),
-			};
+			return produce(state, (draftState) => {
+				draftState.trips[action.payload.tripIndex].items = [
+					...state.trips[action.payload.tripIndex].items.filter(
+						(item) => item.id !== action.payload.itemId
+					),
+				];
+			});
 		}
 
 		default:

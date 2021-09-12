@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../actions";
 
 function AddInventory() {
-	
+
 	const itemList = useSelector((state) => state.inventoryReducer.items);
 	const [item, setItem] = useState("");
 	const dispatch = useDispatch();

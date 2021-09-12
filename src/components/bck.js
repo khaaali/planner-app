@@ -211,5 +211,65 @@ const [item, setItem] = useState("");
 				))}
 			</div>
 		</Card>
+{
+				...state,
+				trips: [
+					...state.trips,
+					{
+						id: uuidv4(),
+						tripName: action.payload.tripName,
+						departDate: action.payload.departDate,
+						returnDate: action.payload.returnDate,
+						items: action.payload.items,
+					},
+				],
+			};
+
+			produce(state, (draftState) => {
+				draftState.trips.push({id: uuidv4(),
+						name: action.payload,})})
+			
+						...state,
+				items: [
+					...state.items,
+					{
+						id: uuidv4(),
+						name: action.payload,
+					},
+				],
+			
+			produce(state, (draftState) => {
+				draftState.trips.push({
+					id: uuidv4(),
+					tripName: action.payload.tripName,
+					departDate: action.payload.departDate,
+					returnDate: action.payload.returnDate,
+					items: action.payload.items,
+				});
+			});
+
+	items: { ...state[action.payload.tripIndex].items, ...items },
+...state,
+  [action.payload.tripId]: {
+   ...state.trip[action.payload.tripId],
+   items: [{...state[action.payload.tripId].items, ...items}]
+  }
+ };
+
+{
+				...state,
+				trips: {
+					...state.trips.items,
+					...(state.trips[action.payload.tripIndex].items = [...items]),
+				},
+
+
+
+
+
+
+
+
+
 
 export default Inventory; */
