@@ -13,8 +13,12 @@ const TripPlanning = () => {
 			<CreateTripForm />
 			<hr />
 			<div style={{ margin: 50 }}>
-				{tripsList.map((trip, index) => (
-					<ScheduledTripCard key={trip.id} trip={trip} tripIndex={index} />
+				{tripsList.map((tripDetails, tripIndex) => (
+					<ScheduledTripCard
+						key={tripDetails.id}
+						tripDetails={tripDetails}
+						tripIndex={tripIndex}
+					/>
 				))}
 			</div>
 		</Card>
