@@ -72,6 +72,12 @@ const tripScheduleReducer = (state = initialState, action) => {
 			});
 		}
 		case "ADD_ITEMS_TO_TRIP":
+			return produce(state, (draftState) => {
+				draftState.trips[action.payload.tripIndex].items.push(
+					action.payload.item
+				);
+			});
+
 			return state;
 
 		case "REMOVE_TRIP":

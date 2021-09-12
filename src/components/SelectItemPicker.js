@@ -51,12 +51,14 @@ const SelectItemPicker = (props) => {
 					variant="primary"
 					disabled={selectedItem === " "}
 					onClick={() => {
+						// finds item from inventory and dispach actions to add items to a trip
 						dispatch(
 							addItemsToTrip({
+								tripIndex: props.tripIndex,
 								item: itemList.find((item) => item.id === selectedItem),
 							})
 						);
-
+						setSelectedItem(" ");
 						console.log(
 							itemList
 								.filter(
