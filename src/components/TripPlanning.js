@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import CreateTripForm from "./CreateTripForm";
 import ScheduledTripCard from "./ScheduledTripCard";
 import "rsuite/dist/styles/rsuite-default.css";
+import { comparatorTripListByDeparture } from "../utils/tripUtilities";
 
 const TripPlanning = () => {
 	const tripsList = useSelector((state) => state.tripReducer.trips);
@@ -13,13 +14,15 @@ const TripPlanning = () => {
 			<CreateTripForm />
 			<hr />
 			<div style={{ margin: 50 }}>
-				{tripsList.map((tripDetails, tripIndex) => (
-					<ScheduledTripCard
-						key={tripDetails.id}
-						tripDetails={tripDetails}
-						tripIndex={tripIndex}
-					/>
-				))}
+				{Object.values(tripsList)
+					.sort(comparatorTripListByDeparture)
+					.map((tripDetails, tripIndex) => (
+						<ScheduledTripCard
+							key={tripDetails.id}
+							tripDetails={tripDetails}
+							tripIndex={tripIndex}
+						/>
+					))}
 			</div>
 		</Card>
 	);

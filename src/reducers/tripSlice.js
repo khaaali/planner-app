@@ -27,10 +27,7 @@ const initialState = {
 	],
 };
 
-function removeItem(array, action) {
-	return [...array.slice(0, action.index), ...array.slice(action.index + 1)];
-}
-
+// handles dispached actions from trip planner
 const tripScheduleReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case "ADD_TRIP": {
