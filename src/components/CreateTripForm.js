@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addTrip } from "../actions";
 import { DateRangePicker } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.css";
+import { v4 as uuidv4 } from "uuid";
 
 const CreateTripForm = () => {
 	const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const CreateTripForm = () => {
 	const onClickCreateNewTrip = () => {
 		dispatch(
 			addTrip({
+				id: uuidv4(),
 				tripName: tripName,
 				departDate: departDate,
 				returnDate: returnDate,

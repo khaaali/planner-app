@@ -1,4 +1,3 @@
-
 //lexical order
 const comparatorItemsListByName = (left, right) => {
 	let comp_left = left.name.toLowerCase(),

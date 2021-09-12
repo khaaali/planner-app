@@ -6,14 +6,17 @@ import ItemTag from "./ItemTag";
 import { addTrip } from "../actions";
 import { DateRangePicker } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.css";
+import { comparatorTripListByDeparture } from "../utils/tripUtilities";
 
 const SelectItemPicker = (props) => {
-	const tripsList = useSelector((state) => state.tripReducer.trips);
+	const tripsList = useSelector((state) =>
+		Object.values(state.tripReducer.trips).sort(comparatorTripListByDeparture)
+	);
 	const itemList = useSelector((state) => state.inventoryReducer.items);
 	const [selectedItem, setSelectedItem] = useState(" ");
 	const dispatch = useDispatch();
 
-	//console.log(props);
+	console.log(tripsList);
 
 	const updateItemName = (e) => {
 		setSelectedItem(e.target.value);
@@ -35,6 +38,7 @@ const SelectItemPicker = (props) => {
 		dispatch(
 			removeTrip({
 				tripIndex: props.tripIndex,
+				tripDetails: tripsList[props.tripIndex],
 			})
 		);
 	};

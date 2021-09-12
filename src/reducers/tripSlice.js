@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import produce from "immer";
+import { comparatorTripListByDeparture } from "../utils/tripUtilities";
 
 const initialState = {
 	trips: [
@@ -32,35 +33,41 @@ const tripScheduleReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case "ADD_TRIP": {
 			return produce(state, (draftState) => {
-				draftState.trips.push({
-					id: uuidv4(),
-					tripName: action.payload.tripName,
-					departDate: action.payload.departDate,
-					returnDate: action.payload.returnDate,
-					items: action.payload.items,
-				});
+				Object.values(draftState.trips.push(action.payload)).sort(
+					comparatorTripListByDeparture
+				);
 			});
 		}
 		case "ADD_ITEMS_TO_TRIP":
+			console.log("fa", action.payload.tripIndex);
+			console.log("sd", state.trips);
 			return produce(state, (draftState) => {
-				draftState.trips[action.payload.tripIndex].items.push(
-					action.payload.item
-				);
+				Object.values(draftState.trips)
+					.sort(comparatorTripListByDeparture)
+					[action.payload.tripIndex].items.push(action.payload.item);
 			});
 
 		case "REMOVE_TRIP":
 			return produce(state, (draftState) => {
-				delete draftState.trips[action.payload.tripIndex];
+				draftState.trips = [
+					...state.trips.filter(
+						(trip) => trip.id !== action.payload.tripDetails.id
+					),
+				];
 			});
 
 		// on action, traverses state using "immer produce" on received index and item,
 		// from actio payload and filters/remove data
 		case "REMOVE_ITEMS_IN_TRIP": {
 			return produce(state, (draftState) => {
-				draftState.trips[action.payload.tripIndex].items = [
-					...state.trips[action.payload.tripIndex].items.filter(
-						(item) => item.id !== action.payload.itemId
-					),
+				Object.values(draftState.trips).sort(comparatorTripListByDeparture)[
+					action.payload.tripIndex
+				].items = [
+					Object.values(...state.trips)
+						.sort(comparatorTripListByDeparture)
+						[action.payload.tripIndex].items.filter(
+							(item) => item.id !== action.payload.itemId
+						),
 				];
 			});
 		}
