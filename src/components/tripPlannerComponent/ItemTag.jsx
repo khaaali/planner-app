@@ -1,10 +1,17 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { stateDeleteItem, removeItemsInTrip } from "../../actions";
-import { deleteItemHandler } from "../../services/ItemsAndTripsService";
+import { stateRemoveItem, stateRemoveItemFromTrip } from "../../actions";
+import { comparatorTripListByDeparture } from "../../utils/AppUtilities";
+import {
+	removeItemHandler,
+	removeItemInTripHandler,
+} from "../../services/ItemsAndTripsService";
 
 const ItemTag = (props) => {
 	const activeTab = useSelector((state) => state.activeTab);
+	const tripsList = useSelector((state) =>
+		Object.values(state.tripReducer.trips).sort(comparatorTripListByDeparture)
+	);
 	const dispatch = useDispatch();
 
 	return (
@@ -18,16 +25,21 @@ const ItemTag = (props) => {
 							// on Inventory Managment tab active
 							if (activeTab.isInventoryTab) {
 								// DELETE request on API
-								deleteItemHandler(el);
+								removeItemHandler(el);
 								// dispach action with corresponding data to reducer
-								dispatch(stateDeleteItem(el));
-							} else
-								dispatch(
-									removeItemsInTrip({
-										itemId: el.id,
-										tripIndex: props.tripIndex,
-									})
-								);
+								dispatch(stateRemoveItem(el));
+							} else {
+								let data = {
+									itemId: el.id,
+									tripIndex: props.tripIndex,
+									trip: tripsList[props.tripIndex],
+								};
+								// DELETE request on API
+								removeItemInTripHandler(data);
+
+								dispatch(stateRemoveItemFromTrip(data));
+							}
+
 							//console.log("dfaf");
 						}}
 					>

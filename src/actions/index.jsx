@@ -61,9 +61,9 @@ const stateAddItem = (data) => {
 	};
 };
 
-const stateDeleteItem = (data) => {
+const stateRemoveItem = (data) => {
 	return {
-		type: "STATE_DELETE_ITEM_INVENTORY",
+		type: "STATE_REMOVE_ITEM_INVENTORY",
 		payload: data,
 	};
 };
@@ -82,9 +82,23 @@ const stateAddTrip = (data) => {
 	};
 };
 
-const stateDeleteTrip = (data) => {
+const stateRemoveTrip = (data) => {
 	return {
-		type: "STATE_DELETE_TRIP_PLANNER",
+		type: "STATE_REMOVE_TRIP_PLANNER",
+		payload: data,
+	};
+};
+
+const stateAddItemsToTrip = (data) => {
+	return {
+		type: "STATE_ADD_ITEMS_TO_TRIP_PLANNER",
+		payload: data,
+	};
+};
+
+const stateRemoveItemFromTrip = (data) => {
+	return {
+		type: "STATE_REMOVE_ITEMS_IN_TRIP_PLANNER",
 		payload: data,
 	};
 };
@@ -99,8 +113,10 @@ export {
 	switchTab,
 	stateLoadItems,
 	stateAddItem,
-	stateDeleteItem,
+	stateRemoveItem,
 	stateLoadTrips,
 	stateAddTrip,
-	stateDeleteTrip,
+	stateRemoveTrip,
+	stateAddItemsToTrip,
+	stateRemoveItemFromTrip,
 };

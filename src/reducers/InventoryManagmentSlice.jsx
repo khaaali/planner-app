@@ -33,7 +33,7 @@ const inventoryItemsReducer = (state = initialState, action) => {
 				draftState.items.push(action.payload);
 			});
 
-		case "STATE_DELETE_ITEM_INVENTORY": {
+		case "STATE_REMOVE_ITEM_INVENTORY": {
 			return produce(state, (draftState) => {
 				draftState.items = [
 					...state.items.filter((item) => item.id !== action.payload.id),

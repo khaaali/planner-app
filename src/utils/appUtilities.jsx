@@ -7,9 +7,9 @@ const comparatorItemsListByName = (left, right) => {
 
 //ascending order
 const comparatorTripListByDeparture = (left, right) => {
-	let comp_left = left.departDate,
-		comp_right = right.departDate;
-	return comp_left === comp_right ? 0 : comp_left > comp_right ? 1 : -1;
+	let comp_left = new Date(left.departDate),
+		comp_right = new Date(right.departDate);
+	return comp_left === comp_right ? 0 : comp_left > comp_right ? -1 : 1;
 };
 
 export { comparatorItemsListByName, comparatorTripListByDeparture };

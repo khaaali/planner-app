@@ -3,12 +3,12 @@ import { Card, FormControl, InputGroup, Button } from "react-bootstrap";
 import ItemTag from "../tripPlannerComponent/ItemTag";
 import { useSelector, useDispatch } from "react-redux";
 import { comparatorItemsListByName } from "../../utils/AppUtilities";
+import { stateLoadItems, stateAddItem } from "../../actions";
+import { v4 as uuidv4 } from "uuid";
 import {
 	getAllItemsHandler,
 	postItemHandler,
 } from "../../services/ItemsAndTripsService";
-import { stateLoadItems, stateAddItem } from "../../actions";
-import { v4 as uuidv4 } from "uuid";
 
 function InventoryManagment() {
 	//retriving information from state
@@ -50,7 +50,7 @@ function InventoryManagment() {
 						onClick={() => {
 							if (item) {
 								let data = { id: uuidv4(), name: item };
-								// POST request on API
+								// POST request to API
 								postItemHandler(data);
 								// dispach action with corresponding data to reducer
 								dispatch(stateAddItem(data));

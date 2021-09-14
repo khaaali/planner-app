@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { addItemsToTrip, stateDeleteTrip } from "../../actions";
+import { stateAddItemsToTrip, stateRemoveTrip } from "../../actions";
 import "rsuite/dist/styles/rsuite-default.css";
 import { comparatorTripListByDeparture } from "../../utils/AppUtilities";
-import { deleteTripHandler } from "../../services/ItemsAndTripsService";
+import {
+	removeTripHandler,
+	putItemToTripHandler,
+} from "../../services/ItemsAndTripsService";
 
 const SelectItemPicker = (props) => {
 	const tripsList = useSelector((state) =>
@@ -22,23 +25,26 @@ const SelectItemPicker = (props) => {
 
 	// finds item from inventory and dispach actions to add items to a trip
 	const onClickAddItemTripHandler = () => {
-		//
-		dispatch(
-			addItemsToTrip({
-				tripIndex: props.tripIndex,
-				item: itemList.find((item) => item.id === selectedItem),
-			})
-		);
+		let data = {
+			tripIndex: props.tripIndex,
+			item: itemList.find((item) => item.id === selectedItem),
+			trip: tripsList[props.tripIndex],
+		};
+		//PUT request to API to add items to corresponding trip
+		putItemToTripHandler(data);
+
+		// dispatches action to add items trip
+		dispatch(stateAddItemsToTrip(data));
 		setSelectedItem(" ");
 	};
 
-	const onClickDeleteTripHandler = () => {
+	const onClickRemoveTripHandler = () => {
 		// DELETE request to API
-		deleteTripHandler(tripsList[props.tripIndex].id);
+		removeTripHandler(tripsList[props.tripIndex].id);
 
 		// dispatches action to remove trip from the list
 		dispatch(
-			stateDeleteTrip({
+			stateRemoveTrip({
 				tripIndex: props.tripIndex,
 				tripDetails: tripsList[props.tripIndex],
 			})
@@ -54,7 +60,7 @@ const SelectItemPicker = (props) => {
 					value={selectedItem}
 					onChange={updateItemName}
 				>
-					{/* A-A^B form should display items which are not in common with inventory */}
+					{/* A-A^B selection form should display items which are not in common with inventory */}
 					<option value=" " key={`${props.tripIndex}-options`}>
 						Select any item
 					</option>
@@ -81,7 +87,7 @@ const SelectItemPicker = (props) => {
 				>
 					Add Item
 				</Button>
-				<Button variant="danger" onClick={onClickDeleteTripHandler}>
+				<Button variant="danger" onClick={onClickRemoveTripHandler}>
 					Delete Trip
 				</Button>
 			</div>

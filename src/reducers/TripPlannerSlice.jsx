@@ -35,7 +35,7 @@ const tripScheduleReducer = (state = initialState, action) => {
 			});
 
 		// on action, traverses state using "immer produce" on received index and item,
-		// from actio payload and filters/remove data
+		// from action payload and filters/remove data
 		case "REMOVE_ITEMS_IN_TRIP": {
 			return produce(state, (draftState) => {
 				Object.values(draftState.trips).sort(comparatorTripListByDeparture)[
@@ -52,7 +52,6 @@ const tripScheduleReducer = (state = initialState, action) => {
 
 		case "STATE_LOAD_TRIPS_PLANNER": {
 			return produce(state, (draftState) => {
-				console.log("slice", action.payload);
 				draftState.trips = action.payload;
 			});
 		}
@@ -65,12 +64,35 @@ const tripScheduleReducer = (state = initialState, action) => {
 			});
 		}
 
-		case "STATE_DELETE_TRIP_PLANNER": {
+		case "STATE_REMOVE_TRIP_PLANNER": {
 			return produce(state, (draftState) => {
 				draftState.trips = [
 					...state.trips.filter(
 						(trip) => trip.id !== action.payload.tripDetails.id
 					),
+				];
+			});
+		}
+
+		case "STATE_ADD_ITEMS_TO_TRIP_PLANNER": {
+			return produce(state, (draftState) => {
+				console.log("slice", action.payload);
+				Object.values(draftState.trips)
+					.sort(comparatorTripListByDeparture)
+					[action.payload.tripIndex].items.push(action.payload.item);
+			});
+		}
+
+		case "STATE_REMOVE_ITEMS_IN_TRIP_PLANNER": {
+			return produce(state, (draftState) => {
+				Object.values(draftState.trips).sort(comparatorTripListByDeparture)[
+					action.payload.tripIndex
+				].items = [
+					...draftState.trips
+						.sort(comparatorTripListByDeparture)
+						[action.payload.tripIndex].items.filter(
+							(item) => item.id !== action.payload.itemId
+						),
 				];
 			});
 		}

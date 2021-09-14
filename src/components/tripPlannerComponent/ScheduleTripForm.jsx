@@ -12,7 +12,7 @@ import {
 	postTripHandler,
 } from "../../services/ItemsAndTripsService";
 
-const CreateTripForm = () => {
+const ScheduleTripForm = () => {
 	const tripsList = useSelector((state) =>
 		Object.values(state.tripReducer.trips).sort(comparatorTripListByDeparture)
 	);
@@ -25,7 +25,6 @@ const CreateTripForm = () => {
 
 	// returns list of trips from API after loading the component
 	useEffect(() => {
-		console.log("useeffecttrips");
 		const fetchTrips = async () => {
 			let trips = await getAllTripsHandler();
 			dispatch(stateLoadTrips(trips));
@@ -58,20 +57,20 @@ const CreateTripForm = () => {
 			return selectedDate === trip.departDate;
 		});
 	};
-	// returns true if return date already exsists in a trip
+	// returns true if return Date already exsists in a trip
 	const isReturnDateExist = (selectedDate) => {
 		return tripsList.some((trip) => {
 			return selectedDate === trip.returnDate;
 		});
 	};
-	// returns true if selected departure date is between existing trip
+	// returns true if selected departure Date is between existing trip
 	const isDateBetweenDeparture = (dep) => {
 		return tripsList.some((trip) => {
 			return dep > trip.departDate && dep < trip.returnDate;
 		});
 	};
 
-	// returns true if selected return date is between existing trip
+	// returns true if selected return Date is between existing trip
 	const isDateBetweenReturn = (ret) => {
 		return tripsList.some((trip) => {
 			return ret < trip.returnDate && ret > trip.departDate;
@@ -150,4 +149,4 @@ const CreateTripForm = () => {
 	);
 };
 
-export default CreateTripForm;
+export default ScheduleTripForm;

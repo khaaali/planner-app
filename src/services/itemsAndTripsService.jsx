@@ -18,7 +18,7 @@ const postItemHandler = async (item) => {
 	return response.data;
 };
 
-const deleteItemHandler = async (item) => {
+const removeItemHandler = async (item) => {
 	const response = await axios
 		.delete(`${API_URL}/items/${item.id}`)
 		.catch((error) => {
@@ -43,9 +43,49 @@ const postTripHandler = async (trip) => {
 	return response.data;
 };
 
-const deleteTripHandler = async (tripID) => {
+const removeTripHandler = async (tripID) => {
 	const response = await axios
 		.delete(`${API_URL}/trips/${tripID}`)
+		.catch((error) => {
+			console.log(error);
+		});
+	return response.data;
+};
+
+// add items to the trip uses PUT to modifiy the nested data of trips
+const putItemToTripHandler = async (data) => {
+	// prepare trip data with items and send put request
+	let put_data = {
+		id: data.trip.id,
+		tripName: data.trip.tripName,
+		departDate: data.trip.departDate,
+		returnDate: data.trip.returnDate,
+		items: [...data.trip.items, data.item],
+	};
+	//console.log("putdata", put_data);
+	const response = await axios
+		.put(`${API_URL}/trips/${data.trip.id}`, put_data)
+		.catch((error) => {
+			console.log(error);
+		});
+	return response.data;
+};
+
+// remove items from trip uses PUT to modify the nested data of trips
+const removeItemInTripHandler = async (data) => {
+	console.log("data", data);
+	// get filter elements by id
+	console.log();
+	let put_data = {
+		id: data.trip.id,
+		tripName: data.trip.tripName,
+		departDate: data.trip.departDate,
+		returnDate: data.trip.returnDate,
+		items: [data.trip.items.filter((el) => el.id !== data.itemId)],
+	};
+
+	const response = await axios
+		.put(`${API_URL}/trips/${data.trip.id}`, put_data)
 		.catch((error) => {
 			console.log(error);
 		});
@@ -55,8 +95,10 @@ const deleteTripHandler = async (tripID) => {
 export {
 	getAllItemsHandler,
 	postItemHandler,
-	deleteItemHandler,
+	removeItemHandler,
 	getAllTripsHandler,
 	postTripHandler,
-	deleteTripHandler,
+	removeTripHandler,
+	putItemToTripHandler,
+	removeItemInTripHandler,
 };

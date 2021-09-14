@@ -1,19 +1,19 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import CreateTripForm from "./CreateTripForm";
+import ScheduleTripForm from "./ScheduleTripForm";
 import ScheduledTripCard from "./ScheduledTripCard";
 import "rsuite/dist/styles/rsuite-default.css";
 import { comparatorTripListByDeparture } from "../../utils/AppUtilities";
 
-const TripPlanning = () => {
+const TripPlanner = () => {
 	const tripsList = useSelector((state) =>
 		Object.values(state.tripReducer.trips).sort(comparatorTripListByDeparture)
 	);
 
 	return (
 		<Card>
-			<CreateTripForm />
+			<ScheduleTripForm />
 			<hr />
 			<div style={{ margin: 50 }}>
 				{tripsList.map((tripDetails, tripIndex) => (
@@ -28,4 +28,4 @@ const TripPlanning = () => {
 	);
 };
 
-export default TripPlanning;
+export default TripPlanner;
