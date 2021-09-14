@@ -12,7 +12,13 @@ const ScheduledTripCard = (props) => {
 			</Card.Header>
 			<Card.Body>
 				<Card.Title>
-					{props.tripDetails.departDate} - {props.tripDetails.returnDate}
+					{new Date(props.tripDetails.departDate)
+						.toLocaleDateString("de-DE")
+						.replace(/\./g, "/")}
+					-
+					{new Date(props.tripDetails.returnDate)
+						.toLocaleDateString("de-DE")
+						.replace(/\./g, "/")}
 				</Card.Title>
 				<ItemTag
 					itemList={props.tripDetails.items}

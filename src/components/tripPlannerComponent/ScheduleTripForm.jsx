@@ -42,18 +42,20 @@ const ScheduleTripForm = () => {
 
 	const selectedDateRange = (dates) => {
 		if (dates.length) {
-			setDate(
-				setDepartDate(dates[0].toLocaleDateString("de-DE").replace(/\./g, "/"))
-			);
-			setDate(
-				setReturnDate(dates[1].toLocaleDateString("de-DE").replace(/\./g, "/"))
-			);
+			setDate(setDepartDate(dates[0].valueOf()));
+			setDate(setReturnDate(dates[1].valueOf()));
 		}
 	};
 
 	// returns true if depatrue date already exsists in a trip
 	const isDepartureDateExist = (selectedDate) => {
 		return tripsList.some((trip) => {
+			console.log(
+				selectedDate,
+				typeof selectedDate,
+				new Date(selectedDate),
+				new Date(trip.departDate).valueOf()
+			);
 			return selectedDate === trip.departDate;
 		});
 	};

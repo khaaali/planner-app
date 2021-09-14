@@ -1,72 +1,70 @@
 {
   "trips": [
     {
-      "id": "eb578ec7-ad2f-4d0b-be38-27156c348030",
-      "tripName": "fdgg",
-      "departDate": "14/9/2021",
-      "returnDate": "17/9/2021",
-      "items": []
-    },
-    {
-      "id": "ab863068-2872-4ab6-ab2a-26102168b0ad",
-      "tripName": "fghdgh",
-      "departDate": "18/9/2021",
-      "returnDate": "19/9/2021",
-      "items": []
-    },
-    {
-      "id": "bae9cf90-cd0f-4ca9-9d05-e14e28da4d0b",
-      "tripName": "dfgdfg",
-      "departDate": "20/9/2021",
-      "returnDate": "25/9/2021",
-      "items": []
-    },
-    {
-      "id": "24b5c499-260e-4e26-bca2-3e02eacf62ff",
-      "tripName": "jjfg",
-      "departDate": "28/9/2021",
-      "returnDate": "30/9/2021",
-      "items": []
-    },
-    {
-      "id": "f4826e2e-e526-4b6f-8ff9-3c006a51a3e2",
-      "tripName": "fjfj",
-      "departDate": "12/10/2021",
-      "returnDate": "14/10/2021",
-      "items": []
-    },
-    {
-      "id": "b6916eb4-aad3-4613-8611-ef5e24784cb9",
-      "tripName": "fhfh",
-      "departDate": "4/10/2021",
-      "returnDate": "7/10/2021",
-      "items": []
+      "id": "e82bb7f5-114d-4caf-ad43-55d58d5f6df1",
+      "tripName": "Yaskawa Interview",
+      "departDate": 1632002400000,
+      "returnDate": 1632088800000,
+      "items": [
+        {
+          "id": "7b9393b8-10b2-4cfc-bfbb-ff3ea21357d3",
+          "name": "ipad"
+        },
+        {
+          "id": "cbc8c1e5-c89d-4e0c-86ac-af447f979cfa",
+          "name": "backpack"
+        },
+        {
+          "id": "1643cdfc-cf84-436b-9937-7afdb73b3849",
+          "name": "charger"
+        },
+        {
+          "id": "e940d0ee-e3f0-41d6-958b-45f795cbd7f3",
+          "name": "COVID test"
+        },
+        {
+          "id": "41433121-081f-4c9a-a68c-925928e2362d",
+          "name": "bus ticket"
+        },
+        {
+          "id": "011020ce-980a-4f00-9449-53714a63a6fb",
+          "name": "Airbnb"
+        }
+      ]
     }
   ],
   "items": [
     {
-      "id": "cacbc7b8-3cd5-4410-ac1d-0a3db71fbc77",
-      "name": "asda"
+      "id": "1dcfaca9-2382-4813-aba7-1b56a8857516",
+      "name": "hair dyer"
     },
     {
-      "id": "8bda9cb5-b76a-40c2-b313-3ee30b5f5f96",
-      "name": "gfd"
+      "id": "1643cdfc-cf84-436b-9937-7afdb73b3849",
+      "name": "charger"
     },
     {
-      "id": "469301da-6c38-4691-9b90-f84b28576104",
-      "name": "dfg"
+      "id": "45eebc99-719b-4a18-a44f-f334ae9d75a4",
+      "name": "trimmer"
     },
     {
-      "id": "fac171ce-7344-4d6c-8c5d-afb963c08b36",
-      "name": "ghj"
+      "id": "7b9393b8-10b2-4cfc-bfbb-ff3ea21357d3",
+      "name": "ipad"
     },
     {
-      "id": "36830255-5dff-4c25-986f-c64e954e1b85",
-      "name": "dssg"
+      "id": "cbc8c1e5-c89d-4e0c-86ac-af447f979cfa",
+      "name": "backpack"
     },
     {
-      "id": "a4f6226e-c6bf-487a-af4c-5274aa88340e",
-      "name": "fs"
+      "id": "e940d0ee-e3f0-41d6-958b-45f795cbd7f3",
+      "name": "COVID test"
+    },
+    {
+      "id": "41433121-081f-4c9a-a68c-925928e2362d",
+      "name": "bus ticket"
+    },
+    {
+      "id": "011020ce-980a-4f00-9449-53714a63a6fb",
+      "name": "Airbnb"
     }
   ]
 }
