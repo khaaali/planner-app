@@ -31,12 +31,32 @@ const getAllTripsHandler = async () => {
 	const response = await axios.get(`${API_URL}/trips`).catch((error) => {
 		console.log(error);
 	});
+	console.log(response.data);
+	return response.data;
+};
+
+const postTripHandler = async (trip) => {
+	console.log("post", trip);
+	const response = await axios.post(`${API_URL}/trips`, trip).catch((error) => {
+		console.log(error);
+	});
+	return response.data;
+};
+
+const deleteTripHandler = async (tripID) => {
+	const response = await axios
+		.delete(`${API_URL}/trips/${tripID}`)
+		.catch((error) => {
+			console.log(error);
+		});
 	return response.data;
 };
 
 export {
-	getAllTripsHandler,
 	getAllItemsHandler,
 	postItemHandler,
 	deleteItemHandler,
+	getAllTripsHandler,
+	postTripHandler,
+	deleteTripHandler,
 };

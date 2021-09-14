@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { apiDeleteItems, removeItemsInTrip } from "../actions";
-import { deleteItemHandler } from "../services/itemsAndTripsService";
+import { stateDeleteItem, removeItemsInTrip } from "../../actions";
+import { deleteItemHandler } from "../../services/ItemsAndTripsService";
 
 const ItemTag = (props) => {
 	const activeTab = useSelector((state) => state.activeTab);
@@ -9,7 +9,7 @@ const ItemTag = (props) => {
 
 	return (
 		<div className="items_style">
-			{Object.values(props.itemList).map((el, index) => (
+			{Object.values(props.itemList).map((el) => (
 				<ul key={el.id} className="tag">
 					<span className="tag-label">{el.name}</span>
 					<span
@@ -20,7 +20,7 @@ const ItemTag = (props) => {
 								// DELETE request on API
 								deleteItemHandler(el);
 								// dispach action with corresponding data to reducer
-								dispatch(apiDeleteItems(el));
+								dispatch(stateDeleteItem(el));
 							} else
 								dispatch(
 									removeItemsInTrip({

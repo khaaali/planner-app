@@ -1,12 +1,16 @@
 import { Button, Form } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addTrip } from "../actions";
+import { addTrip, stateLoadTrips, stateAddTrip } from "../../actions";
 import { useSelector } from "react-redux";
 import { DateRangePicker } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.css";
 import { v4 as uuidv4 } from "uuid";
-import { comparatorTripListByDeparture } from "../utils/appUtilities";
+import { comparatorTripListByDeparture } from "../../utils/AppUtilities";
+import {
+	getAllTripsHandler,
+	postTripHandler,
+} from "../../services/ItemsAndTripsService";
 
 const CreateTripForm = () => {
 	const tripsList = useSelector((state) =>
@@ -19,6 +23,16 @@ const CreateTripForm = () => {
 	const [returnDate, setReturnDate] = useState("");
 	const [date, setDate] = useState([]);
 
+	// returns list of trips from API after loading the component
+	useEffect(() => {
+		console.log("useeffecttrips");
+		const fetchTrips = async () => {
+			let trips = await getAllTripsHandler();
+			dispatch(stateLoadTrips(trips));
+		};
+		fetchTrips();
+	}, []);
+
 	const captureTripName = (e) => {
 		setTripName(e.target.value);
 		if (Number(tripName)) {
@@ -27,25 +41,37 @@ const CreateTripForm = () => {
 		}
 	};
 
-	// returns trip if date already exsists
+	const selectedDateRange = (dates) => {
+		if (dates.length) {
+			setDate(
+				setDepartDate(dates[0].toLocaleDateString("de-DE").replace(/\./g, "/"))
+			);
+			setDate(
+				setReturnDate(dates[1].toLocaleDateString("de-DE").replace(/\./g, "/"))
+			);
+		}
+	};
+
+	// returns true if depatrue date already exsists in a trip
 	const isDepartureDateExist = (selectedDate) => {
 		return tripsList.some((trip) => {
 			return selectedDate === trip.departDate;
 		});
 	};
-
+	// returns true if return date already exsists in a trip
 	const isReturnDateExist = (selectedDate) => {
 		return tripsList.some((trip) => {
 			return selectedDate === trip.returnDate;
 		});
 	};
-
+	// returns true if selected departure date is between existing trip
 	const isDateBetweenDeparture = (dep) => {
 		return tripsList.some((trip) => {
 			return dep > trip.departDate && dep < trip.returnDate;
 		});
 	};
 
+	// returns true if selected return date is between existing trip
 	const isDateBetweenReturn = (ret) => {
 		return tripsList.some((trip) => {
 			return ret < trip.returnDate && ret > trip.departDate;
@@ -66,45 +92,23 @@ const CreateTripForm = () => {
 	const onClickCreateNewTrip = () => {
 		// no valid trip on true
 		if (handleCreateTripValidation()) {
-			console.log("handleCreateTripValidation", handleCreateTripValidation());
-			console.log("isDepartureDateExist_D", isDepartureDateExist(departDate));
-			console.log("isDepartureDateExist_R", isDepartureDateExist(returnDate));
-			console.log("isReturnDateExist_D", isReturnDateExist(departDate));
-			console.log("isReturnDateExist_R", isReturnDateExist(returnDate));
-			console.log(
-				"isDateBetweenDeparture_D",
-				isDateBetweenDeparture(departDate)
-			);
-
-			console.log("isDateBetweenReturn_R", isDateBetweenReturn(returnDate));
-
-			//alert("choose different dates");
 			setTripName("");
 			setDepartDate("");
 			setReturnDate("");
 			setDate([]);
 		} else {
-			console.log("handleCreateTripValidation", handleCreateTripValidation());
-			console.log("isDepartureDateExist_D", isDepartureDateExist(departDate));
-			console.log("isDepartureDateExist_R", isDepartureDateExist(returnDate));
-			console.log("isReturnDateExist_D", isReturnDateExist(departDate));
-			console.log("isReturnDateExist_R", isReturnDateExist(returnDate));
-			console.log(
-				"isDateBetweenDeparture_D",
-				isDateBetweenDeparture(departDate)
-			);
-
-			console.log("isDateBetweenReturn_R", isDateBetweenReturn(returnDate));
-			dispatch(
-				addTrip({
-					id: uuidv4(),
-					tripName: tripName,
-					departDate: departDate,
-					returnDate: returnDate,
-					items: [],
-				})
-			);
-
+			// POST request to API
+			let data = {
+				id: uuidv4(),
+				tripName: tripName,
+				departDate: departDate,
+				returnDate: returnDate,
+				items: [],
+			};
+			postTripHandler(data);
+			// dispatch changes to state using reducer
+			dispatch(stateAddTrip(data));
+			// reset form
 			setTripName("");
 			setDepartDate("");
 			setReturnDate("");
@@ -112,16 +116,6 @@ const CreateTripForm = () => {
 		}
 	};
 
-	const selectedDateRange = (dates) => {
-		if (dates.length) {
-			setDate(
-				setDepartDate(dates[0].toLocaleDateString("de-DE").replace(/\./g, "/"))
-			);
-			setDate(
-				setReturnDate(dates[1].toLocaleDateString("de-DE").replace(/\./g, "/"))
-			);
-		}
-	};
 	return (
 		<div>
 			<Form className="form-container">

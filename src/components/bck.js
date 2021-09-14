@@ -265,9 +265,31 @@ const [item, setItem] = useState("");
 
 
 
+			 console.log("handleCreateTripValidation", handleCreateTripValidation());
+			console.log("isDepartureDateExist_D", isDepartureDateExist(departDate));
+			console.log("isDepartureDateExist_R", isDepartureDateExist(returnDate));
+			console.log("isReturnDateExist_D", isReturnDateExist(departDate));
+			console.log("isReturnDateExist_R", isReturnDateExist(returnDate));
+			console.log(
+				"isDateBetweenDeparture_D",
+				isDateBetweenDeparture(departDate)
+			);
 
+			console.log("isDateBetweenReturn_R", isDateBetweenReturn(returnDate));
 
+			//alert("choose different dates");
 
+	console.log("handleCreateTripValidation", handleCreateTripValidation());
+			console.log("isDepartureDateExist_D", isDepartureDateExist(departDate));
+			console.log("isDepartureDateExist_R", isDepartureDateExist(returnDate));
+			console.log("isReturnDateExist_D", isReturnDateExist(departDate));
+			console.log("isReturnDateExist_R", isReturnDateExist(returnDate));
+			console.log(
+				"isDateBetweenDeparture_D",
+				isDateBetweenDeparture(departDate)
+			);
+
+			console.log("isDateBetweenReturn_R", isDateBetweenReturn(returnDate));
 
 
 

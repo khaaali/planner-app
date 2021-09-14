@@ -1,9 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import InventoryManagment from "./components/InventoryManagment";
+import InventoryManagment from "./components/inventoryComponent/InventoryManagment";
 import Header from "./components/Header";
-import TripPlanning from "./components/TripPlanning";
+import TripPlanning from "./components/tripPlannerComponent/TripPlanning";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 

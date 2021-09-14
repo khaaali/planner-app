@@ -21,20 +21,19 @@ const inventoryItemsReducer = (state = initialState, action) => {
 			});
 		}
 
-		case "API_LOAD_ITEMS_INVENTORY": {
+		case "STATE_LOAD_ITEMS_INVENTORY": {
 			return produce(state, (draftState) => {
-				console.log(action.payload);
 				draftState.items = action.payload;
 			});
 		}
 
-		case "API_ADD_ITEMS_INVENTORY":
+		case "STATE_ADD_ITEM_INVENTORY":
 			return produce(state, (draftState) => {
 				console.log(action.payload);
 				draftState.items.push(action.payload);
 			});
 
-		case "API_DELETE_ITEMS_INVENTORY": {
+		case "STATE_DELETE_ITEM_INVENTORY": {
 			return produce(state, (draftState) => {
 				draftState.items = [
 					...state.items.filter((item) => item.id !== action.payload.id),

@@ -1,6 +1,6 @@
-import inventoryItemsReducer from "./inventoryItemSlice";
-import tripScheduleReducer from "./tripSlice";
-import activeTabReducer from "./activeTabSlice";
+import inventoryItemsReducer from "./InventoryManagmentSlice";
+import tripScheduleReducer from "./TripPlannerSlice";
+import activeTabReducer from "./ActiveTabSlice";
 import { combineReducers } from "redux";
 
 const rootReducers = combineReducers({

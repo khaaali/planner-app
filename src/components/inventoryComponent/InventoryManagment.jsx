@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Card, FormControl, InputGroup, Button } from "react-bootstrap";
-import ItemTag from "./ItemTag";
+import ItemTag from "../tripPlannerComponent/ItemTag";
 import { useSelector, useDispatch } from "react-redux";
-import { comparatorItemsListByName } from "../utils/appUtilities";
+import { comparatorItemsListByName } from "../../utils/AppUtilities";
 import {
 	getAllItemsHandler,
 	postItemHandler,
-} from "../services/itemsAndTripsService";
-import { apiLoadItems, apiAddItems } from "../actions";
+} from "../../services/ItemsAndTripsService";
+import { stateLoadItems, stateAddItem } from "../../actions";
 import { v4 as uuidv4 } from "uuid";
 
 function InventoryManagment() {
@@ -21,10 +21,9 @@ function InventoryManagment() {
 
 	// returns list of items from API after loading the component
 	useEffect(() => {
-		console.log("useeffect");
 		const fetchItems = async () => {
 			let items = await getAllItemsHandler();
-			dispatch(apiLoadItems(items));
+			dispatch(stateLoadItems(items));
 		};
 		fetchItems();
 	}, []);
@@ -50,12 +49,11 @@ function InventoryManagment() {
 						disabled={item === ""}
 						onClick={() => {
 							if (item) {
-								let id = uuidv4();
-								const data = { id: id, name: item };
+								let data = { id: uuidv4(), name: item };
 								// POST request on API
 								postItemHandler(data);
 								// dispach action with corresponding data to reducer
-								dispatch(apiAddItems(data));
+								dispatch(stateAddItem(data));
 								setItem("");
 							}
 						}}

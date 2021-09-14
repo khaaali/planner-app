@@ -5,11 +5,11 @@ const comparatorItemsListByName = (left, right) => {
 	return comp_left === comp_right ? 0 : comp_left > comp_right ? 1 : -1;
 };
 
-//Decending order
+//ascending order
 const comparatorTripListByDeparture = (left, right) => {
 	let comp_left = left.departDate,
 		comp_right = right.departDate;
-	return comp_left === comp_right ? 0 : comp_left > comp_right ? -1 : 1;
+	return comp_left === comp_right ? 0 : comp_left > comp_right ? 1 : -1;
 };
 
 export { comparatorItemsListByName, comparatorTripListByDeparture };

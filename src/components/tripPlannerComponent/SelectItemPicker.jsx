@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { addItemsToTrip, removeTrip } from "../actions";
+import { addItemsToTrip, stateDeleteTrip } from "../../actions";
 import "rsuite/dist/styles/rsuite-default.css";
-import { comparatorTripListByDeparture } from "../utils/appUtilities";
+import { comparatorTripListByDeparture } from "../../utils/AppUtilities";
+import { deleteTripHandler } from "../../services/ItemsAndTripsService";
 
 const SelectItemPicker = (props) => {
 	const tripsList = useSelector((state) =>
@@ -20,7 +21,8 @@ const SelectItemPicker = (props) => {
 	};
 
 	// finds item from inventory and dispach actions to add items to a trip
-	const handlerAddItemTrip = () => {
+	const onClickAddItemTripHandler = () => {
+		//
 		dispatch(
 			addItemsToTrip({
 				tripIndex: props.tripIndex,
@@ -30,10 +32,13 @@ const SelectItemPicker = (props) => {
 		setSelectedItem(" ");
 	};
 
-	// dispaches action to remove trip from the list
-	const handlerDeleteTrip = () => {
+	const onClickDeleteTripHandler = () => {
+		// DELETE request to API
+		deleteTripHandler(tripsList[props.tripIndex].id);
+
+		// dispatches action to remove trip from the list
 		dispatch(
-			removeTrip({
+			stateDeleteTrip({
 				tripIndex: props.tripIndex,
 				tripDetails: tripsList[props.tripIndex],
 			})
@@ -72,11 +77,11 @@ const SelectItemPicker = (props) => {
 				<Button
 					variant="primary"
 					disabled={selectedItem === " "}
-					onClick={handlerAddItemTrip}
+					onClick={onClickAddItemTripHandler}
 				>
 					Add Item
 				</Button>
-				<Button variant="danger" onClick={handlerDeleteTrip}>
+				<Button variant="danger" onClick={onClickDeleteTripHandler}>
 					Delete Trip
 				</Button>
 			</div>

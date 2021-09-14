@@ -47,23 +47,44 @@ const switchTab = (data) => {
 	};
 };
 
-const apiLoadItems = (data) => {
+const stateLoadItems = (data) => {
 	return {
-		type: "API_LOAD_ITEMS_INVENTORY",
+		type: "STATE_LOAD_ITEMS_INVENTORY",
 		payload: data,
 	};
 };
 
-const apiAddItems = (data) => {
+const stateAddItem = (data) => {
 	return {
-		type: "API_ADD_ITEMS_INVENTORY",
+		type: "STATE_ADD_ITEM_INVENTORY",
 		payload: data,
 	};
 };
 
-const apiDeleteItems = (data) => {
+const stateDeleteItem = (data) => {
 	return {
-		type: "API_DELETE_ITEMS_INVENTORY",
+		type: "STATE_DELETE_ITEM_INVENTORY",
+		payload: data,
+	};
+};
+
+const stateLoadTrips = (data) => {
+	return {
+		type: "STATE_LOAD_TRIPS_PLANNER",
+		payload: data,
+	};
+};
+
+const stateAddTrip = (data) => {
+	return {
+		type: "STATE_ADD_TRIP_PLANNER",
+		payload: data,
+	};
+};
+
+const stateDeleteTrip = (data) => {
+	return {
+		type: "STATE_DELETE_TRIP_PLANNER",
 		payload: data,
 	};
 };
@@ -76,7 +97,10 @@ export {
 	removeItem,
 	removeTrip,
 	switchTab,
-	apiLoadItems,
-	apiAddItems,
-	apiDeleteItems,
+	stateLoadItems,
+	stateAddItem,
+	stateDeleteItem,
+	stateLoadTrips,
+	stateAddTrip,
+	stateDeleteTrip,
 };
