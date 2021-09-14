@@ -50,12 +50,6 @@ const ScheduleTripForm = () => {
 	// returns true if depatrue date already exsists in a trip
 	const isDepartureDateExist = (selectedDate) => {
 		return tripsList.some((trip) => {
-			console.log(
-				selectedDate,
-				typeof selectedDate,
-				new Date(selectedDate),
-				new Date(trip.departDate).valueOf()
-			);
 			return selectedDate === trip.departDate;
 		});
 	};

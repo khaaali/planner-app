@@ -17,8 +17,6 @@ const SelectItemPicker = (props) => {
 	const [selectedItem, setSelectedItem] = useState(" ");
 	const dispatch = useDispatch();
 
-	//console.log(tripsList);
-
 	const updateItemName = (e) => {
 		setSelectedItem(e.target.value);
 	};

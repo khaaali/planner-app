@@ -81,7 +81,7 @@ const removeItemInTripHandler = async (data) => {
 		tripName: data.trip.tripName,
 		departDate: data.trip.departDate,
 		returnDate: data.trip.returnDate,
-		items: [data.trip.items.filter((el) => el.id !== data.itemId)],
+		items: data.trip.items.filter((el) => el.id !== data.itemId),
 	};
 
 	const response = await axios

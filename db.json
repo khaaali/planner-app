@@ -1,70 +1,47 @@
 {
-	"trips": [
-		{
-			"id": "e82bb7f5-114d-4caf-ad43-55d58d5f6df1",
-			"tripName": "Yaskawa Interview",
-			"departDate": 1632002400000,
-			"returnDate": 1632088800000,
-			"items": [
-				{
-					"id": "7b9393b8-10b2-4cfc-bfbb-ff3ea21357d3",
-					"name": "ipad"
-				},
-				{
-					"id": "cbc8c1e5-c89d-4e0c-86ac-af447f979cfa",
-					"name": "backpack"
-				},
-				{
-					"id": "1643cdfc-cf84-436b-9937-7afdb73b3849",
-					"name": "charger"
-				},
-				{
-					"id": "e940d0ee-e3f0-41d6-958b-45f795cbd7f3",
-					"name": "COVID test"
-				},
-				{
-					"id": "41433121-081f-4c9a-a68c-925928e2362d",
-					"name": "bus ticket"
-				},
-				{
-					"id": "011020ce-980a-4f00-9449-53714a63a6fb",
-					"name": "Airbnb"
-				}
-			]
-		}
-	],
-	"items": [
-		{
-			"id": "1dcfaca9-2382-4813-aba7-1b56a8857516",
-			"name": "hair dyer"
-		},
-		{
-			"id": "1643cdfc-cf84-436b-9937-7afdb73b3849",
-			"name": "charger"
-		},
-		{
-			"id": "45eebc99-719b-4a18-a44f-f334ae9d75a4",
-			"name": "trimmer"
-		},
-		{
-			"id": "7b9393b8-10b2-4cfc-bfbb-ff3ea21357d3",
-			"name": "ipad"
-		},
-		{
-			"id": "cbc8c1e5-c89d-4e0c-86ac-af447f979cfa",
-			"name": "backpack"
-		},
-		{
-			"id": "e940d0ee-e3f0-41d6-958b-45f795cbd7f3",
-			"name": "COVID test"
-		},
-		{
-			"id": "41433121-081f-4c9a-a68c-925928e2362d",
-			"name": "bus ticket"
-		},
-		{
-			"id": "011020ce-980a-4f00-9449-53714a63a6fb",
-			"name": "Airbnb"
-		}
-	]
+  "trips": [
+    {
+      "id": "f34b0685-aeac-428a-bf7d-8bb55d4ed4d4",
+      "tripName": "sfsd",
+      "departDate": 1631656800000,
+      "returnDate": 1631743200000,
+      "items": []
+    },
+    {
+      "id": "83c95f47-5415-4a89-8992-42b27ec937bb",
+      "tripName": "sdfs",
+      "departDate": 1631829600000,
+      "returnDate": 1633989600000,
+      "items": []
+    },
+    {
+      "id": "5f44958b-c368-4233-a575-d012f7b36d72",
+      "tripName": "sdfsd",
+      "departDate": 1636412400000,
+      "returnDate": 1636585200000,
+      "items": []
+    }
+  ],
+  "items": [
+    {
+      "id": "faa7a398-1903-4081-a330-301a6ea16973",
+      "name": "fsd"
+    },
+    {
+      "id": "379c9bad-24a2-4b8e-b498-69057374b2c9",
+      "name": "sdfds"
+    },
+    {
+      "id": "1d03abdd-25cd-4e70-8ed4-618de27f3146",
+      "name": "sdfds"
+    },
+    {
+      "id": "6abe9261-eb75-4d9d-b0bd-e456710efdd4",
+      "name": "sdfsd"
+    },
+    {
+      "id": "e48a57c5-de4d-4b30-80bd-24184d369c79",
+      "name": "sdf"
+    }
+  ]
 }

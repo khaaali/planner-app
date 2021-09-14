@@ -20,10 +20,12 @@ const ScheduledTripCard = (props) => {
 						.toLocaleDateString("de-DE")
 						.replace(/\./g, "/")}
 				</Card.Title>
-				<ItemTag
+				{/* 	{console.log("itemstag",props.tripDetails.items)} */}
+				<ItemTag 
 					itemList={props.tripDetails.items}
 					tripIndex={props.tripIndex}
 				/>
+
 				<div style={{ display: "flex", gap: 10 }}>
 					<SelectItemPicker
 						tripDetails={props.tripDetails}

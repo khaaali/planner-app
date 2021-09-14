@@ -17,7 +17,7 @@ const ItemTag = (props) => {
 	return (
 		<div className="items_style">
 			{Object.values(props.itemList).map((el) => (
-				<ul key={el.id} className="tag">
+				<ul key={`${el.id}-tag`} className="tag">
 					<span className="tag-label">{el.name}</span>
 					<span
 						className="close-tag"
@@ -36,11 +36,9 @@ const ItemTag = (props) => {
 								};
 								// DELETE request on API
 								removeItemInTripHandler(data);
-
+								// dispach action with corresponding data to reducer
 								dispatch(stateRemoveItemFromTrip(data));
 							}
-
-							//console.log("dfaf");
 						}}
 					>
 						X
