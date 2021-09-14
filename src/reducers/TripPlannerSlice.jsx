@@ -34,7 +34,6 @@ const tripScheduleReducer = (state = initialState, action) => {
 
 		case "STATE_ADD_ITEMS_TO_TRIP_PLANNER": {
 			return produce(state, (draftState) => {
-				console.log("slice", action.payload);
 				Object.values(draftState.trips)
 					.sort(comparatorTripListByDeparture)
 					[action.payload.tripIndex].items.push(action.payload.item);

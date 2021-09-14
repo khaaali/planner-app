@@ -1,47 +1,106 @@
 {
   "trips": [
     {
-      "id": "f34b0685-aeac-428a-bf7d-8bb55d4ed4d4",
-      "tripName": "sfsd",
-      "departDate": 1631656800000,
-      "returnDate": 1631743200000,
-      "items": []
+      "id": "b0ff860f-d9c0-4a64-a0bd-e968362e7370",
+      "tripName": "Yaskawa Interview",
+      "departDate": 1632002400000,
+      "returnDate": 1632088800000,
+      "items": [
+        {
+          "id": "79ff03b9-25bf-45f8-ba03-f4c3a7f9081c",
+          "name": "cell charger"
+        },
+        {
+          "id": "5a002ed0-2111-4440-b594-92c92a374516",
+          "name": "ipad"
+        },
+        {
+          "id": "15916a00-e295-46d3-a974-320738d372cb",
+          "name": "mobile"
+        },
+        {
+          "id": "c4c5f2ae-5011-47a4-a877-0630212eadd6",
+          "name": "tickets"
+        }
+      ]
     },
     {
-      "id": "83c95f47-5415-4a89-8992-42b27ec937bb",
-      "tripName": "sdfs",
-      "departDate": 1631829600000,
-      "returnDate": 1633989600000,
-      "items": []
+      "id": "266bcf05-be9e-47c0-b37a-7cfff08983f5",
+      "tripName": "Munich",
+      "departDate": 1632175200000,
+      "returnDate": 1632261600000,
+      "items": [
+        {
+          "id": "ecb9e77d-a4d1-4986-941e-8740e113a03b",
+          "name": "hair dyer"
+        },
+        {
+          "id": "15916a00-e295-46d3-a974-320738d372cb",
+          "name": "mobile"
+        },
+        {
+          "id": "c4c5f2ae-5011-47a4-a877-0630212eadd6",
+          "name": "tickets"
+        },
+        {
+          "id": "79ff03b9-25bf-45f8-ba03-f4c3a7f9081c",
+          "name": "cell charger"
+        },
+        {
+          "id": "5a002ed0-2111-4440-b594-92c92a374516",
+          "name": "ipad"
+        }
+      ]
     },
     {
-      "id": "5f44958b-c368-4233-a575-d012f7b36d72",
-      "tripName": "sdfsd",
-      "departDate": 1636412400000,
-      "returnDate": 1636585200000,
-      "items": []
+      "id": "27da79e4-246e-4261-9bca-d24dd4da8690",
+      "tripName": "Chemnitz",
+      "departDate": 1632434400000,
+      "returnDate": 1632520800000,
+      "items": [
+        {
+          "id": "ecb9e77d-a4d1-4986-941e-8740e113a03b",
+          "name": "hair dyer"
+        },
+        {
+          "id": "5a002ed0-2111-4440-b594-92c92a374516",
+          "name": "ipad"
+        },
+        {
+          "id": "79ff03b9-25bf-45f8-ba03-f4c3a7f9081c",
+          "name": "cell charger"
+        },
+        {
+          "id": "15916a00-e295-46d3-a974-320738d372cb",
+          "name": "mobile"
+        },
+        {
+          "id": "c4c5f2ae-5011-47a4-a877-0630212eadd6",
+          "name": "tickets"
+        }
+      ]
     }
   ],
   "items": [
     {
-      "id": "faa7a398-1903-4081-a330-301a6ea16973",
-      "name": "fsd"
+      "id": "ecb9e77d-a4d1-4986-941e-8740e113a03b",
+      "name": "hair dyer"
     },
     {
-      "id": "379c9bad-24a2-4b8e-b498-69057374b2c9",
-      "name": "sdfds"
+      "id": "79ff03b9-25bf-45f8-ba03-f4c3a7f9081c",
+      "name": "cell charger"
     },
     {
-      "id": "1d03abdd-25cd-4e70-8ed4-618de27f3146",
-      "name": "sdfds"
+      "id": "5a002ed0-2111-4440-b594-92c92a374516",
+      "name": "ipad"
     },
     {
-      "id": "6abe9261-eb75-4d9d-b0bd-e456710efdd4",
-      "name": "sdfsd"
+      "id": "15916a00-e295-46d3-a974-320738d372cb",
+      "name": "mobile"
     },
     {
-      "id": "e48a57c5-de4d-4b30-80bd-24184d369c79",
-      "name": "sdf"
+      "id": "c4c5f2ae-5011-47a4-a877-0630212eadd6",
+      "name": "tickets"
     }
   ]
 }

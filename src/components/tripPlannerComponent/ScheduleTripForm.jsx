@@ -1,7 +1,7 @@
 import { Button, Form } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addTrip, stateLoadTrips, stateAddTrip } from "../../actions";
+import { stateLoadTrips, stateAddTrip } from "../../actions";
 import { useSelector } from "react-redux";
 import { DateRangePicker } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.css";
