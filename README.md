@@ -80,7 +80,8 @@ The system maintains an inventory of the user’s possessions, as well as a list
 ## Miscellaneous
 
 There is no need to go beyond the specification. In particular, it is not necessary to
-[] allow the user to check off the items included in a trip, like in a TODO-list,
-[] support multiple users with different data, or shared access to the same data,
-[] limit the user to legal actions in the frontend, e.g. by disabling parts of the user interface – displaying a generic error message is sufficient when the user does something illegal, such as adding an item to a trip twice
-[] implement a test suite
+
+- [] allow the user to check off the items included in a trip, like in a TODO-list,
+- [] support multiple users with different data, or shared access to the same data,
+- [] limit the user to legal actions in the frontend, e.g. by disabling parts of the user interface – displaying a generic error message is sufficient when the user does something illegal, such as adding an item to a trip twice
+- [] implement a test suite
