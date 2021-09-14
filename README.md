@@ -44,9 +44,11 @@ Open [http://localhost:8001](http://localhost:8001) to view it in the browser.
   }
 
 ### Limitations
-- No Validation on user input dates, if the dates are valid trip will be create 
-- No caching mechanisim, application ALWAYS communicates with the API to fetch data 
 
+- No Validation on user input dates, if the dates are valid trip will be create
+- No caching mechanisim, application ALWAYS communicates with the API to fetch data
+
+![dataStructure](dataStructure.PNG)
 
 ### Project Overview
 
