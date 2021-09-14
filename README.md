@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Getting Started with Create React Planner App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
 In the project directory, you can run:
+
+## Step 1
+
+### `json-server --watch db.json`
+
+This will create JSON server instance for the application
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### `API Endpoint for the resources`
+
+[http://localhost:3000/trips](http://localhost:3000/trips)
+[http://localhost:3000/items](http://localhost:3000/items)
+
+**Note: db.json is the schema and used to persist the data for the application!**
+
+## Step 2
 
 ### `yarn start`
 
-Runs the app in the development mode.\
+This will start react app in the development mode.\
 Open [http://localhost:8001](http://localhost:8001) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `Dependencies`
 
-### `yarn test`
+## Bootstrap
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Redux
 
-### `yarn build`
+## Immer
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Axios
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## rsuite
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Known issues
 
-### `yarn eject`
+# Datepicker tends to fail, when alert() in DOM is triggered, needs a page refersh
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Datepicker libirary CSS class conflicts with bootstrap, quick fix in /rsuite/dist/styles/resuite-default.css
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+.fade.in {
+opacity: 1 !important;
+pointer-events: unset;
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Project Overview
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The purpose of the application is to provide a checklist of items that need to be packed for a trip.
+The system maintains an inventory of the user’s possessions, as well as a list of trips that the user in planning to take. Every trip can then be associated with a subset of the items in the inventory.
 
-## Learn More
+### Requirements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Items:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[x] Each item has a name, consisting of a random string: e.g. ‘phone charger’, ‘blue shirt’, ‘passport’, etc.
+[x] Multiple items can have the same name because the user may own multiple identical items.
 
-### Code Splitting
+## Trips:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[x] A trip has a name, a start date, and an end date.
+[x] Multiple trips may have the same name.
+[x] A trip’s end date must not precede its start date.
+[x] The user can only be on one trip at a time, i.e. the start/end period of one trip must not overlap with another trip.
 
-### Analyzing the Bundle Size
+## Planning:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[x] Every item can be associated with any number of trips. For example, the user may take his phone charger on every trip.
+[x] An item can only be added to each trip once. For example, it’s not possible to take the phone charger twice on the same trip.
+[x] If multiple items have the same name, each represents a separate item. For example, the user can take two phone chargers, if two items in the inventory are named ‘phone charger’.
 
-### Making a Progressive Web App
+### Features:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Inventory Management:
 
-### Advanced Configuration
+[x] List all items in the inventory, ordered alphabetically
+[x] Add a new item to the inventory
+[x] Remove an item from the inventory
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Trip Management
 
-### Deployment
+[x] List all trips, ordered by their start date
+[x] Add a new trip
+[x] Remove an existing trip
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Planning
 
-### `yarn build` fails to minify
+[x] List all items that have been included in the trip
+[x] Include an item from the inventory to the trip
+[x] Exclude a previously included item from the trip
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Miscellaneous
+
+There is no need to go beyond the specification. In particular, it is not necessary to
+[] allow the user to check off the items included in a trip, like in a TODO-list,
+[] support multiple users with different data, or shared access to the same data,
+[] limit the user to legal actions in the frontend, e.g. by disabling parts of the user interface – displaying a generic error message is sufficient when the user does something illegal, such as adding an item to a trip twice
+[] implement a test suite

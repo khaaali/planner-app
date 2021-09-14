@@ -17,8 +17,6 @@ const tripScheduleReducer = (state = initialState, action) => {
 			});
 		}
 		case "ADD_ITEMS_TO_TRIP":
-			//console.log("fa", action.payload.tripIndex);
-			//console.log("sd", state.trips);
 			return produce(state, (draftState) => {
 				Object.values(draftState.trips)
 					.sort(comparatorTripListByDeparture)
