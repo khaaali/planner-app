@@ -14,9 +14,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `API Endpoint for the resources`
 
 [http://localhost:3000/trips](http://localhost:3000/trips)
+
 [http://localhost:3000/items](http://localhost:3000/items)
 
-**Note: db.json is the schema and used to persist the data for the application!**
+**Note: db.json is the schema, used to persist the data for the application!**
 
 ## Step 2
 
@@ -39,14 +40,12 @@ Open [http://localhost:8001](http://localhost:8001) to view it in the browser.
 
 ### Known issues
 
-# Datepicker tends to fail, when alert() in DOM is triggered, needs a page refersh
-
-# Datepicker libirary CSS class conflicts with bootstrap, quick fix in /rsuite/dist/styles/resuite-default.css
-
-.fade.in {
-opacity: 1 !important;
-pointer-events: unset;
-}
+- Datepicker tends to fail, when alert() in DOM is triggered, needs a page refersh
+- Datepicker libirary CSS class conflicts with bootstrap, quick fix in /rsuite/dist/styles/resuite-default.css
+  .fade.in {
+  opacity: 1 !important;
+  pointer-events: unset;
+  }
 
 ### Project Overview
 
@@ -57,8 +56,8 @@ The system maintains an inventory of the user’s possessions, as well as a list
 
 ## Items:
 
-[x] Each item has a name, consisting of a random string: e.g. ‘phone charger’, ‘blue shirt’, ‘passport’, etc.
-[x] Multiple items can have the same name because the user may own multiple identical items.
+:_:\check: Each item has a name, consisting of a random string: e.g. ‘phone charger’, ‘blue shirt’, ‘passport’, etc.
+:_:\check: Multiple items can have the same name because the user may own multiple identical items.
 
 ## Trips:
 

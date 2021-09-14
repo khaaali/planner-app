@@ -1,70 +1,70 @@
 {
-  "trips": [
-    {
-      "id": "e82bb7f5-114d-4caf-ad43-55d58d5f6df1",
-      "tripName": "Yaskawa Interview",
-      "departDate": 1632002400000,
-      "returnDate": 1632088800000,
-      "items": [
-        {
-          "id": "7b9393b8-10b2-4cfc-bfbb-ff3ea21357d3",
-          "name": "ipad"
-        },
-        {
-          "id": "cbc8c1e5-c89d-4e0c-86ac-af447f979cfa",
-          "name": "backpack"
-        },
-        {
-          "id": "1643cdfc-cf84-436b-9937-7afdb73b3849",
-          "name": "charger"
-        },
-        {
-          "id": "e940d0ee-e3f0-41d6-958b-45f795cbd7f3",
-          "name": "COVID test"
-        },
-        {
-          "id": "41433121-081f-4c9a-a68c-925928e2362d",
-          "name": "bus ticket"
-        },
-        {
-          "id": "011020ce-980a-4f00-9449-53714a63a6fb",
-          "name": "Airbnb"
-        }
-      ]
-    }
-  ],
-  "items": [
-    {
-      "id": "1dcfaca9-2382-4813-aba7-1b56a8857516",
-      "name": "hair dyer"
-    },
-    {
-      "id": "1643cdfc-cf84-436b-9937-7afdb73b3849",
-      "name": "charger"
-    },
-    {
-      "id": "45eebc99-719b-4a18-a44f-f334ae9d75a4",
-      "name": "trimmer"
-    },
-    {
-      "id": "7b9393b8-10b2-4cfc-bfbb-ff3ea21357d3",
-      "name": "ipad"
-    },
-    {
-      "id": "cbc8c1e5-c89d-4e0c-86ac-af447f979cfa",
-      "name": "backpack"
-    },
-    {
-      "id": "e940d0ee-e3f0-41d6-958b-45f795cbd7f3",
-      "name": "COVID test"
-    },
-    {
-      "id": "41433121-081f-4c9a-a68c-925928e2362d",
-      "name": "bus ticket"
-    },
-    {
-      "id": "011020ce-980a-4f00-9449-53714a63a6fb",
-      "name": "Airbnb"
-    }
-  ]
+	"trips": [
+		{
+			"id": "e82bb7f5-114d-4caf-ad43-55d58d5f6df1",
+			"tripName": "Yaskawa Interview",
+			"departDate": 1632002400000,
+			"returnDate": 1632088800000,
+			"items": [
+				{
+					"id": "7b9393b8-10b2-4cfc-bfbb-ff3ea21357d3",
+					"name": "ipad"
+				},
+				{
+					"id": "cbc8c1e5-c89d-4e0c-86ac-af447f979cfa",
+					"name": "backpack"
+				},
+				{
+					"id": "1643cdfc-cf84-436b-9937-7afdb73b3849",
+					"name": "charger"
+				},
+				{
+					"id": "e940d0ee-e3f0-41d6-958b-45f795cbd7f3",
+					"name": "COVID test"
+				},
+				{
+					"id": "41433121-081f-4c9a-a68c-925928e2362d",
+					"name": "bus ticket"
+				},
+				{
+					"id": "011020ce-980a-4f00-9449-53714a63a6fb",
+					"name": "Airbnb"
+				}
+			]
+		}
+	],
+	"items": [
+		{
+			"id": "1dcfaca9-2382-4813-aba7-1b56a8857516",
+			"name": "hair dyer"
+		},
+		{
+			"id": "1643cdfc-cf84-436b-9937-7afdb73b3849",
+			"name": "charger"
+		},
+		{
+			"id": "45eebc99-719b-4a18-a44f-f334ae9d75a4",
+			"name": "trimmer"
+		},
+		{
+			"id": "7b9393b8-10b2-4cfc-bfbb-ff3ea21357d3",
+			"name": "ipad"
+		},
+		{
+			"id": "cbc8c1e5-c89d-4e0c-86ac-af447f979cfa",
+			"name": "backpack"
+		},
+		{
+			"id": "e940d0ee-e3f0-41d6-958b-45f795cbd7f3",
+			"name": "COVID test"
+		},
+		{
+			"id": "41433121-081f-4c9a-a68c-925928e2362d",
+			"name": "bus ticket"
+		},
+		{
+			"id": "011020ce-980a-4f00-9449-53714a63a6fb",
+			"name": "Airbnb"
+		}
+	]
 }

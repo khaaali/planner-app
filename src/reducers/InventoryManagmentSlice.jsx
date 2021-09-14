@@ -7,20 +7,6 @@ const initialState = {
 
 const inventoryItemsReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case "ADD_ITEM": {
-			return produce(state, (draftState) => {
-				draftState.items.push({ id: uuidv4(), name: action.payload });
-			});
-		}
-
-		case "REMOVE_ITEM": {
-			return produce(state, (draftState) => {
-				draftState.items = [
-					...state.items.filter((item) => item.id !== action.payload.itemId),
-				];
-			});
-		}
-
 		case "STATE_LOAD_ITEMS_INVENTORY": {
 			return produce(state, (draftState) => {
 				draftState.items = action.payload;
