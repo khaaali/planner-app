@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import produce from "immer";
-import { comparatorTripListByDeparture } from "../utils/tripUtilities";
+import { comparatorTripListByDeparture } from "../utils/appUtilities";
 
 const initialState = {
 	trips: [

@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { switchTab } from "../actions/index.js";
+import { switchTab } from "../actions/index";
 
 function Header() {
 	var activeTab = useSelector((state) => state.activeTab);

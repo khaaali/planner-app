@@ -47,6 +47,27 @@ const switchTab = (data) => {
 	};
 };
 
+const apiLoadItems = (data) => {
+	return {
+		type: "API_LOAD_ITEMS_INVENTORY",
+		payload: data,
+	};
+};
+
+const apiAddItems = (data) => {
+	return {
+		type: "API_ADD_ITEMS_INVENTORY",
+		payload: data,
+	};
+};
+
+const apiDeleteItems = (data) => {
+	return {
+		type: "API_DELETE_ITEMS_INVENTORY",
+		payload: data,
+	};
+};
+
 export {
 	addItem,
 	addTrip,
@@ -55,4 +76,7 @@ export {
 	removeItem,
 	removeTrip,
 	switchTab,
+	apiLoadItems,
+	apiAddItems,
+	apiDeleteItems,
 };

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import CreateTripForm from "./CreateTripForm";
 import ScheduledTripCard from "./ScheduledTripCard";
 import "rsuite/dist/styles/rsuite-default.css";
-import { comparatorTripListByDeparture } from "../utils/tripUtilities";
+import { comparatorTripListByDeparture } from "../utils/appUtilities";
 
 const TripPlanning = () => {
 	const tripsList = useSelector((state) =>

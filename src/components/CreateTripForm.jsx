@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { DateRangePicker } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.css";
 import { v4 as uuidv4 } from "uuid";
-import { comparatorTripListByDeparture } from "../utils/tripUtilities";
+import { comparatorTripListByDeparture } from "../utils/appUtilities";
 
 const CreateTripForm = () => {
 	const tripsList = useSelector((state) =>

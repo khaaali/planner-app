@@ -1,8 +1,8 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import AddInventory from "./components/AddInventory.js";
-import Header from "./components/Header.js";
+import InventoryManagment from "./components/InventoryManagment";
+import Header from "./components/Header";
 import TripPlanning from "./components/TripPlanning";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -14,7 +14,7 @@ function App() {
 			<div className="App">
 				<Header />
 				{activeTab.isInventoryTab === true ? (
-					<AddInventory />
+					<InventoryManagment />
 				) : (
 					<TripPlanning />
 				)}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeItem, removeItemsInTrip } from "../actions";
+import { apiDeleteItems, removeItemsInTrip } from "../actions";
+import { deleteItemHandler } from "../services/itemsAndTripsService";
 
 const ItemTag = (props) => {
 	const activeTab = useSelector((state) => state.activeTab);
@@ -14,9 +15,13 @@ const ItemTag = (props) => {
 					<span
 						className="close-tag"
 						onClick={() => {
-							if (activeTab.isInventoryTab)
-								dispatch(removeItem({ itemId: el.id }));
-							else
+							// on Inventory Managment tab active
+							if (activeTab.isInventoryTab) {
+								// DELETE request on API
+								deleteItemHandler(el);
+								// dispach action with corresponding data to reducer
+								dispatch(apiDeleteItems(el));
+							} else
 								dispatch(
 									removeItemsInTrip({
 										itemId: el.id,

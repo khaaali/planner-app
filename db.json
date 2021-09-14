@@ -1,36 +1,47 @@
 {
-	"trips": [
-		{
-			"id": 1,
-			"departDate": "20/9/2021",
-			"items": [],
-			"returnDate": "12/10/2021",
-			"tripName": "Sudan"
-		},
-		{
-			"id": 2,
-			"departDate": "22/9/2021",
-			"items": [],
-			"returnDate": "11/10/2021",
-			"tripName": "Spain"
-		},
-		{
-			"id": 3,
-			"departDate": "21/9/2021",
-			"items": [],
-			"returnDate": "10/10/2021",
-			"tripName": "Thailand"
-		}
-	],
-
-	"items": [
-		{
-			"id": 4,
-			"name": "hair dyer"
-		},
-		{
-			"id": 5,
-			"name": "cell charger"
-		}
-	]
+  "trips": [
+    {
+      "id": "a412af06-86cc-416b-959f-80235a2d5abf",
+      "departDate": "20/9/2021",
+      "items": [],
+      "returnDate": "12/10/2021",
+      "tripName": "Sudan"
+    },
+    {
+      "id": "9cd42e2d-cd96-4d42-9c07-eca04cc84f48",
+      "departDate": "22/9/2021",
+      "items": [],
+      "returnDate": "11/10/2021",
+      "tripName": "Spain"
+    },
+    {
+      "id": "ed8d0cfa-8195-4643-b756-764c132194bb",
+      "departDate": "21/9/2021",
+      "items": [],
+      "returnDate": "10/10/2021",
+      "tripName": "Thailand"
+    }
+  ],
+  "items": [
+    {
+      "id": "072ee1cb-53b4-4339-aec4-c13c50563c49",
+      "name": "s"
+    },
+    {
+      "id": "a3e0616b-1fd8-4cec-8081-69a115aec26e",
+      "name": "a"
+    },
+    {
+      "id": "e63b3262-491e-4fbf-b68d-edd97c535bc0",
+      "name": "sfsg"
+    },
+    {
+      "id": "dfef8cbc-c5e9-43a9-956d-0dd9614724a4",
+      "name": "s"
+    },
+    {
+      "id": "a52462b2-2c9d-4c5a-bcef-d79be6b173fc",
+      "name": "fg"
+    }
+  ]
 }

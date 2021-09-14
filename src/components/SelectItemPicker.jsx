@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { addItemsToTrip, removeTrip } from "../actions";
 import "rsuite/dist/styles/rsuite-default.css";
-import { comparatorTripListByDeparture } from "../utils/tripUtilities";
+import { comparatorTripListByDeparture } from "../utils/appUtilities";
 
 const SelectItemPicker = (props) => {
 	const tripsList = useSelector((state) =>
