@@ -48,7 +48,13 @@ Open [http://localhost:8001](http://localhost:8001) to view it in the browser.
 - No Validation on user input dates, if the dates are valid trip will be create
 - No caching mechanisim, application ALWAYS communicates with the API to fetch data
 
+### DataModel
+
 ![dataStructure](dataStructure.PNG)
+
+### State Diagram
+
+![stateDiagram](stateDiagram.PNG)
 
 ### Project Overview
 
