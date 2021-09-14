@@ -31,7 +31,6 @@ const getAllTripsHandler = async () => {
 	const response = await axios.get(`${API_URL}/trips`).catch((error) => {
 		console.log(error);
 	});
-	console.log(response.data);
 	return response.data;
 };
 
@@ -73,9 +72,7 @@ const putItemToTripHandler = async (data) => {
 
 // remove items from trip uses PUT to modify the nested data of trips
 const removeItemInTripHandler = async (data) => {
-	console.log("data", data);
 	// get filter elements by id
-	console.log();
 	let put_data = {
 		id: data.trip.id,
 		tripName: data.trip.tripName,

@@ -14,7 +14,6 @@ const inventoryItemsReducer = (state = initialState, action) => {
 
 		case "STATE_ADD_ITEM_INVENTORY":
 			return produce(state, (draftState) => {
-				console.log(action.payload);
 				draftState.items.push(action.payload);
 			});
 
