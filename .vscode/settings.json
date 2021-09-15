@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/c73dd0a0-9eed-45f4-b0ac-693e69688b6c/resourceGroups/cloud-shell-storage-westeurope/providers/Microsoft.Web/sites/reactplannerapp",
+    "appService.deploySubpath": "."
+}
