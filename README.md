@@ -58,6 +58,18 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
 ![stateDiagram](stateDiagram.PNG)
 
+| Methods | Urls       | Actions                                         |
+| ------- | ---------- | ----------------------------------------------- |
+| POST    | /items     | create new item                                 |
+| GET     | /items     | retrieve all items                              |
+| DELETE  | /items/:id | delete a item by :id                            |
+| GET     | /trips     | retrieve all trips                              |
+| POST    | /trips     | create new trip                                 |
+| DELETE  | /trips/:id | delete a trip by :id                            |
+| PUT     | /trips/:id | used to edit trip to add items and delete items |
+
+![reactredux](react redux architecture.PNG)
+
 ### Project Overview
 
 The purpose of the application is to provide a checklist of items that need to be packed for a trip.

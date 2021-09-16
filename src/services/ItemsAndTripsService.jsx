@@ -35,7 +35,6 @@ const getAllTripsHandler = async () => {
 };
 
 const postTripHandler = async (trip) => {
-	console.log("post", trip);
 	const response = await axios.post(`${API_URL}/trips`, trip).catch((error) => {
 		console.log(error);
 	});
