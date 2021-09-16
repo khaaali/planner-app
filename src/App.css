@@ -93,3 +93,9 @@
   gap: 10px;
   margin: 25px;
 }
+
+
+.fade.in {
+  opacity: 1 !important;
+  pointer-events: unset;
+}
