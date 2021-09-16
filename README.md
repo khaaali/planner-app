@@ -24,7 +24,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `yarn start`
 
 This will start react app in the development mode.\
-Open [http://localhost:8001](http://localhost:8001) to view it in the browser.
+Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
 ### `Dependencies`
 
@@ -46,8 +46,9 @@ Open [http://localhost:8001](http://localhost:8001) to view it in the browser.
 
 ### Limitations
 
-- No Validation on user input dates, if the dates are valid trip will be create
+- No Validation errors or feedback on user input dates, if the dates are valid trip will be create
 - No caching mechanisim, application ALWAYS communicates with the API to fetch data
+- JSON server must be started first to fetch data, otherwise react app will fails
 
 ### DataModel
 
