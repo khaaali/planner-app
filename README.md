@@ -37,6 +37,7 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 ### Known issues
 
 - Datepicker tends to fail, when alert() in DOM is triggered, needs a page refersh
+- If an item is deleted from inventory, it will remain persistant in the trip.  
 - Datepicker libirary CSS class conflicts with bootstrap,
 
 ```markdown
