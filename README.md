@@ -68,7 +68,9 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 | DELETE  | /trips/:id | delete a trip by :id                            |
 | PUT     | /trips/:id | used to edit trip to add items and delete items |
 
-![reactredux](react redux architecture.PNG)
+### Redux Architecture
+
+![reactreduxarchitecture](reactreduxarchitecture.PNG)
 
 ### Project Overview
 
