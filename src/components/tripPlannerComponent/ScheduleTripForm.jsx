@@ -60,16 +60,28 @@ const ScheduleTripForm = () => {
 		});
 	};
 	// returns true if selected departure Date is between existing trip
-	const isDateBetweenDeparture = (dep) => {
+	const isDepartureDateBetween = (selectedDate) => {
 		return tripsList.some((trip) => {
-			return dep > trip.departDate && dep < trip.returnDate;
+			return selectedDate > trip.departDate && selectedDate < trip.returnDate;
 		});
 	};
 
 	// returns true if selected return Date is between existing trip
-	const isDateBetweenReturn = (ret) => {
+	const isReturnDateBetween = (selectedDate) => {
 		return tripsList.some((trip) => {
-			return ret < trip.returnDate && ret > trip.departDate;
+			return selectedDate > trip.departDate && selectedDate < trip.returnDate;
+		});
+	};
+
+	// return true if privious trip falls into current selected range
+	const isPreviousTripBetweenCurrentTrip = (selDepDate, selRetDate) => {
+		return tripsList.some((trip) => {
+			return (
+				selDepDate < trip.departDate &&
+				selDepDate < trip.returnDate &&
+				selRetDate > trip.departDate &&
+				selRetDate > trip.returnDate
+			);
 		});
 	};
 
@@ -79,8 +91,9 @@ const ScheduleTripForm = () => {
 			isDepartureDateExist(returnDate) ||
 			isReturnDateExist(departDate) ||
 			isReturnDateExist(returnDate) ||
-			isDateBetweenDeparture(departDate) ||
-			isDateBetweenReturn(returnDate)
+			isDepartureDateBetween(departDate) ||
+			isReturnDateBetween(returnDate) ||
+			isPreviousTripBetweenCurrentTrip(departDate, returnDate)
 		);
 	};
 
