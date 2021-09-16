@@ -37,12 +37,15 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 ### Known issues
 
 - Datepicker tends to fail, when alert() in DOM is triggered, needs a page refersh
-- Datepicker libirary CSS class conflicts with bootstrap, quick fix in line 187
-  /rsuite/dist/styles/resuite-default.css
-  .fade.in {
-  opacity: 1 !important;
-  pointer-events: unset;
-  }
+- Datepicker libirary CSS class conflicts with bootstrap,
+
+```markdown
+quick fix in line 187 /rsuite/dist/styles/resuite-default.css
+.fade.in {
+opacity: 1 !important;
+pointer-events: unset;
+}
+```
 
 ### Limitations
 
