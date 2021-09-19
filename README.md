@@ -54,6 +54,7 @@ pointer-events: unset;
 - No caching mechanisim, application ALWAYS communicates with the API to fetch data
 - JSON server must be started first to fetch data, otherwise react app will fails
 
+
 ### DataModel
 
 ![dataStructure](dataStructure.PNG)
